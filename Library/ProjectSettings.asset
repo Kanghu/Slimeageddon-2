@@ -646,9 +646,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: fbc6032d-8c97-4158-8676-b8a5f8564588
-  projectName: Slimeageddon
-  organizationId: kanghu
+  cloudProjectId: 66def35a-031e-42e0-9565-1dca0cfb65ee
+  projectName: Slimeaggedon
+  organizationId: illuminateh
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

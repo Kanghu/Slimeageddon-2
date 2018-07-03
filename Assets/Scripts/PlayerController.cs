@@ -17,14 +17,15 @@ public class PlayerController : NetworkBehaviour {
     // Player characteristics
     [SyncVar(hook = "HealthChange")]
     public int hp;
-    int mana;
-    int full_hp;
-    int full_mana;
 
-    float movement_speed = 3.0f;
-    float attack_speed;
+    public int mana;
+    public int full_hp;
+    public int full_mana;
 
-    float jump_velocity = 6f;
+    public float movement_speed = 3.0f;
+    public float attack_speed;
+
+    public float jump_velocity = 6f;
 
     // Player states
     public float lastJump;
