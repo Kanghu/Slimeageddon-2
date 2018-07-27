@@ -27,14 +27,21 @@ public class PlayerController : NetworkBehaviour {
 
     public float jump_velocity = 6f;
 
+    public int hit_damage = 10;
+
     // Player states
     public float lastJump;
     public int jumps;
+
+    public GameObject weapon;
+    public Animator weaponAnimator;
 
 	// Use this for initialization
 	void Start () {
 
         anim = GetComponent<Animator>();
+        weaponAnimator = weapon.GetComponent<Animator>();
+
         faceRight = true;
 
 	}
@@ -94,6 +101,11 @@ public class PlayerController : NetworkBehaviour {
                 jumps++;
                 lastJump = Time.time;
             }
+        }
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            Attack();
         }
 
         if(Input.GetKeyDown(KeyCode.L))
@@ -158,8 +170,13 @@ public class PlayerController : NetworkBehaviour {
     void HealthChange(int health)
     {
         hp = health;
-
+        
         healthBar.sizeDelta = new Vector2(health, healthBar.sizeDelta.y);
+    }
+
+    void Attack()
+    {
+        anim.Play("Attacking");
     }
 }
 
