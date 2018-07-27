@@ -9,6 +9,7 @@ public class PlayerController : NetworkBehaviour {
     public RectTransform healthBar;
 
     Animator anim;
+    NetworkAnimator network_anim;
 
     [SyncVar(hook = "Turn")]
     public bool faceRight;
@@ -33,17 +34,25 @@ public class PlayerController : NetworkBehaviour {
     public float lastJump;
     public int jumps;
 
+    // Player states
+
+    bool recharging;
+    bool dazing;
+    bool immovable;
+
     public GameObject weapon;
-    public Animator weaponAnimator;
 
 	// Use this for initialization
 	void Start () {
 
         anim = GetComponent<Animator>();
-        weaponAnimator = weapon.GetComponent<Animator>();
+        network_anim = GetComponent<NetworkAnimator>();
 
         faceRight = true;
 
+        recharging = false;
+        dazing = false;
+        immovable = false;
 	}
 	
 	// Update is called once per frame
@@ -53,6 +62,28 @@ public class PlayerController : NetworkBehaviour {
         {
             return;
         }
+
+        if (Input.GetKeyDown(KeyCode.L)) // For testing purposes
+        {
+            hp -= 10;
+
+            if (!dazing)
+            {
+                anim.SetBool("dazing", true);
+                dazing = true;
+                immovable = true;
+            }
+
+            else
+            {
+                anim.SetBool("dazing", false);
+                dazing = false;
+                immovable = false;
+            }
+        }
+
+        if (immovable)
+            return;
 
         var dirVec = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")); // Input
         int input_x = (int) dirVec.x * 100; // In order to be compared in the State Machine
@@ -86,17 +117,10 @@ public class PlayerController : NetworkBehaviour {
         {
             if (Time.time - lastJump > 0.25f && jumps < 2) // Check for cooldown and consecutive jumps
             {
-                //anim.SetBool("jumping", true);
-                GetComponent<Animator>().Play("Jumping", 0, 0);
+                anim.SetTrigger("jumping");
+                //GetComponent<Animator>().Play("Jumping", 0, 0);
 
-                if (jumps == 0)
-                {
-                    GetComponent<Rigidbody2D>().velocity = new Vector2(0, jump_velocity); // Add respective force
-                }
-                else
-                {
-                    GetComponent<Rigidbody2D>().velocity = new Vector2(0, jump_velocity);
-                }
+                GetComponent<Rigidbody2D>().velocity = new Vector2(0, jump_velocity); // Add force
 
                 jumps++;
                 lastJump = Time.time;
@@ -108,9 +132,19 @@ public class PlayerController : NetworkBehaviour {
             Attack();
         }
 
-        if(Input.GetKeyDown(KeyCode.L))
+
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            hp -= 10;
+            anim.SetBool("recharging", true);
+
+            recharging = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.S) && recharging)
+        {
+            anim.SetBool("recharging", false);
+
+            recharging = false;
         }
 
         transform.Translate(dirVec.x * Time.deltaTime * movement_speed, 0, 0); // Movement
@@ -169,14 +203,15 @@ public class PlayerController : NetworkBehaviour {
 
     void HealthChange(int health)
     {
-        hp = health;
+        hp = health; // update Server -> Client
         
         healthBar.sizeDelta = new Vector2(health, healthBar.sizeDelta.y);
     }
 
     void Attack()
     {
-        anim.Play("Attacking");
+        anim.SetTrigger("attacking");
+        network_anim.SetTrigger("attacking"); // trigger pentru NetworkAnimator (necesar ptr layere)
     }
 }
 
