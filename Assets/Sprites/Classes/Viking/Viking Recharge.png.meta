@@ -1,15 +1,17 @@
 fileFormatVersion: 2
-guid: 5b0e74dcd99051e4bbd7c80126a186c5
+guid: d25fd764d20d676429aacc76bf8d8185
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Viking Walking_0
-    21300002: Viking Walking_1
-    21300004: Viking Walking_2
-    21300006: Viking Walking_3
-    21300008: Viking Walking_4
-    21300010: Viking Walking_5
-    21300012: Viking Walking_6
-    21300014: Viking Walking_7
+    21300000: Viking Recharge_0
+    21300002: Viking Recharge_1
+    21300004: Viking Recharge_2
+    21300006: Viking Recharge_3
+    21300008: Viking Recharge_4
+    21300010: Viking Recharge_5
+    21300012: Viking Recharge_6
+    21300014: Viking Recharge_7
+    21300016: Viking Recharge_8
+    21300018: Viking Recharge_9
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -37,7 +39,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -69,7 +71,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -80,7 +82,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -102,7 +104,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -112,7 +114,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Viking Walking_0
+      name: Viking Recharge_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d08d2f0d5e0560f4287b9f47fd09837e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viking Recharge_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d976e268d35e9b46ac55b121785ce89
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viking Recharge_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4c9ce52190356f418da4437f75e28d1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viking Recharge_3
       rect:
         serializedVersion: 2
         x: 0
@@ -126,13 +188,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bac9de06c142c44781c46053c9ce662
+      spriteID: d3f1b917231fac44ca738c49196f0050
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viking Walking_1
+      name: Viking Recharge_4
       rect:
         serializedVersion: 2
         x: 64
@@ -146,13 +208,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec58bdbd074239044a15142d8a58bf7b
+      spriteID: b69e4415037638b4ba0a72df6b42f2e9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viking Walking_2
+      name: Viking Recharge_5
       rect:
         serializedVersion: 2
         x: 128
@@ -166,13 +228,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e70437b6a21b2e4f8b3783ea79b26af
+      spriteID: d02e252f23937e84c9b9db0a3cbc9cf3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viking Walking_3
+      name: Viking Recharge_6
       rect:
         serializedVersion: 2
         x: 0
@@ -186,13 +248,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c86a9a6f067cb1349923cf90974a272a
+      spriteID: 24ac8503f7090a345862c09ef9da2ac9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viking Walking_4
+      name: Viking Recharge_7
       rect:
         serializedVersion: 2
         x: 64
@@ -206,13 +268,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c6fc93f5e1dd6a438a4b539fb33fdff
+      spriteID: 46b7bd2abe4f8da4485c51268737e9d3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viking Walking_5
+      name: Viking Recharge_8
       rect:
         serializedVersion: 2
         x: 128
@@ -226,13 +288,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e72c17c6f3cc0dd45b275173864d22c8
+      spriteID: 3eb4e41bee5bbdd4e80cedb662949461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viking Walking_6
+      name: Viking Recharge_9
       rect:
         serializedVersion: 2
         x: 0
@@ -246,27 +308,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a19e29a1f02e4844b85633d9d9ed5f8
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Viking Walking_7
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a3972c9044257548b844e072a4434af
+      spriteID: 0f666f68ff1824e4e95ea1c93bd1079a
       vertices: []
       indices: 
       edges: []
@@ -274,7 +316,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b6a1ea26040785a4a982cc2f6b845a55
+    spriteID: f15121d6a0828ec40a7f3462412b4e85
     vertices: []
     indices: 
     edges: []

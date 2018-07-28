@@ -1,17 +1,16 @@
 fileFormatVersion: 2
-guid: d25fd764d20d676429aacc76bf8d8185
+guid: db2333971ce912543aa604c0e33baa7a
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Viking Recharge_0
-    21300002: Viking Recharge_1
-    21300004: Viking Recharge_2
-    21300006: Viking Recharge_3
-    21300008: Viking Recharge_4
-    21300010: Viking Recharge_5
-    21300012: Viking Recharge_6
-    21300014: Viking Recharge_7
-    21300016: Viking Recharge_8
-    21300018: Viking Recharge_9
+    21300000: Viking Breathing_0
+    21300002: Viking Breathing_1
+    21300004: Viking Breathing_2
+    21300006: Viking Breathing_3
+    21300008: Viking Breathing_4
+    21300010: Viking Breathing_5
+    21300012: Viking Breathing_6
+    21300014: Viking Breathing_7
+    21300016: Viking Breathing_8
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -39,7 +38,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -71,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -82,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -104,7 +103,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -114,67 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Viking Recharge_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d08d2f0d5e0560f4287b9f47fd09837e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Viking Recharge_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d976e268d35e9b46ac55b121785ce89
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Viking Recharge_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d4c9ce52190356f418da4437f75e28d1
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Viking Recharge_3
+      name: Viking Breathing_0
       rect:
         serializedVersion: 2
         x: 0
@@ -188,13 +127,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3f1b917231fac44ca738c49196f0050
+      spriteID: b0f5dad2072c6fe40b1c843eec10528c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viking Recharge_4
+      name: Viking Breathing_1
       rect:
         serializedVersion: 2
         x: 64
@@ -208,13 +147,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b69e4415037638b4ba0a72df6b42f2e9
+      spriteID: 1623a5c613d74d14d8d2c3f5af2e4382
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viking Recharge_5
+      name: Viking Breathing_2
       rect:
         serializedVersion: 2
         x: 128
@@ -228,13 +167,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d02e252f23937e84c9b9db0a3cbc9cf3
+      spriteID: da994bda081e31249bd3fa9fa7b2ab42
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viking Recharge_6
+      name: Viking Breathing_3
       rect:
         serializedVersion: 2
         x: 0
@@ -248,13 +187,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24ac8503f7090a345862c09ef9da2ac9
+      spriteID: b8bc3c375da36a940ab3d884f66937bb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viking Recharge_7
+      name: Viking Breathing_4
       rect:
         serializedVersion: 2
         x: 64
@@ -268,13 +207,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46b7bd2abe4f8da4485c51268737e9d3
+      spriteID: ba8b8dff1fd9a654fa247488a18ae41e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viking Recharge_8
+      name: Viking Breathing_5
       rect:
         serializedVersion: 2
         x: 128
@@ -288,13 +227,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3eb4e41bee5bbdd4e80cedb662949461
+      spriteID: 684f0547f8eb67340a1cee151fc973ed
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viking Recharge_9
+      name: Viking Breathing_6
       rect:
         serializedVersion: 2
         x: 0
@@ -308,7 +247,47 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f666f68ff1824e4e95ea1c93bd1079a
+      spriteID: dbf39ccd5f63e7e45812c69bb28f24b4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viking Breathing_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32e8979f69e469b4187d6e2c408e894a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viking Breathing_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c1669d19d6ea0c49b6515e2cfeeb4bf
       vertices: []
       indices: 
       edges: []
@@ -316,7 +295,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: f15121d6a0828ec40a7f3462412b4e85
+    spriteID: 3cce4900f1d04d14f9a5bce922ea4d1d
     vertices: []
     indices: 
     edges: []

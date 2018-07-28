@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: db2333971ce912543aa604c0e33baa7a
+guid: 26862eac9edfd4349be77864aaf885ab
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Viking Breathing_0
-    21300002: Viking Breathing_1
-    21300004: Viking Breathing_2
-    21300006: Viking Breathing_3
-    21300008: Viking Breathing_4
-    21300010: Viking Breathing_5
-    21300012: Viking Breathing_6
-    21300014: Viking Breathing_7
-    21300016: Viking Breathing_8
+    21300000: Viking Jump_0
+    21300002: Viking Jump_1
+    21300004: Viking Jump_2
+    21300006: Viking Jump_3
+    21300008: Viking Jump_4
+    21300010: Viking Jump_5
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -38,7 +35,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -70,7 +67,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -81,18 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,7 +89,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,7 +99,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Viking Breathing_0
+      name: Viking Jump_0
       rect:
         serializedVersion: 2
         x: 0
@@ -127,13 +113,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0f5dad2072c6fe40b1c843eec10528c
+      spriteID: 8a658379dd6d3384c9a6a0afcca4c85c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viking Breathing_1
+      name: Viking Jump_1
       rect:
         serializedVersion: 2
         x: 64
@@ -147,33 +133,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1623a5c613d74d14d8d2c3f5af2e4382
+      spriteID: 9ff33225166995b49b1dcda77e234556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viking Breathing_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: da994bda081e31249bd3fa9fa7b2ab42
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Viking Breathing_3
+      name: Viking Jump_2
       rect:
         serializedVersion: 2
         x: 0
@@ -187,13 +153,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8bc3c375da36a940ab3d884f66937bb
+      spriteID: 91118628372e6d641b756dff7338fafb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viking Breathing_4
+      name: Viking Jump_3
       rect:
         serializedVersion: 2
         x: 64
@@ -207,33 +173,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba8b8dff1fd9a654fa247488a18ae41e
+      spriteID: 90b1b0337cafaef4ab7f13990cefb682
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viking Breathing_5
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 684f0547f8eb67340a1cee151fc973ed
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Viking Breathing_6
+      name: Viking Jump_4
       rect:
         serializedVersion: 2
         x: 0
@@ -247,13 +193,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbf39ccd5f63e7e45812c69bb28f24b4
+      spriteID: f40f6519b7f167b44b5e2cc5939b4e38
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viking Breathing_7
+      name: Viking Jump_5
       rect:
         serializedVersion: 2
         x: 64
@@ -267,27 +213,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32e8979f69e469b4187d6e2c408e894a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Viking Breathing_8
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6c1669d19d6ea0c49b6515e2cfeeb4bf
+      spriteID: efe603f7d7ec85d419b67a00a7242f40
       vertices: []
       indices: 
       edges: []
@@ -295,7 +221,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3cce4900f1d04d14f9a5bce922ea4d1d
+    spriteID: 5bfa98d460a1f6242962883591bb6f75
     vertices: []
     indices: 
     edges: []
