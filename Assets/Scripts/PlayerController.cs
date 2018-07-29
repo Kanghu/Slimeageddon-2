@@ -115,12 +115,20 @@ public class PlayerController : NetworkBehaviour {
 
         if ((Input.GetKeyDown(KeyCode.Space) || input_y > 0))
         {
-            if (Time.time - lastJump > 0.25f && jumps < 2) // Check for cooldown and consecutive jumps
+            if ((Time.time - lastJump > 0.15f || jumps == 0) && jumps < 2) // Check for cooldown and consecutive jumps
             {
                 anim.SetTrigger("jumping");
                 //GetComponent<Animator>().Play("Jumping", 0, 0);
 
-                GetComponent<Rigidbody2D>().velocity = new Vector2(0, jump_velocity); // Add force
+                if (jumps == 0)
+                {
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(0, jump_velocity); // Add force
+                }
+                else
+                {
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(0, jump_velocity / 1.35f); // Add less force on the 2nd jump
+                }
+
 
                 jumps++;
                 lastJump = Time.time;

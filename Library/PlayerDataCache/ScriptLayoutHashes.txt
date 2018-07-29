@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/Kanghu/Desktop/Slimeageddon/Slimeageddon/Build/Build.exe
+C:/Users/dennw/Documents/GitHub/Slimeageddon-2/BUILD TEST/BUILD TEST.exe
 SceneListBegin?
 Assets/Scenes/GameScene.unity
 SceneListEnd?
@@ -115,7 +115,7 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 ce09cb02e2f857c8aa562f2552261f90 Assembly-CSharp.dll:.WeaponScript
-c8daebdd902cc8293113127f19f92487 Assembly-CSharp.dll:.PlayerController
+d622b9a8400c422fcb09e922ea08b493 Assembly-CSharp.dll:.PlayerController
 520c1e6115d6caa8bc2b0f2a222dca92 Assembly-CSharp.dll:.CameraScript
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
