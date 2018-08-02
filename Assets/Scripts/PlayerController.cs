@@ -24,10 +24,13 @@ public class PlayerController : NetworkBehaviour {
     public int full_mana;
 
     public float movement_speed = 3.0f;
+
+    [SyncVar(hook = "setAttackSpeed")]
     public float attack_speed;
 
     public float jump_velocity = 6f;
 
+    [SyncVar(hook = "setAttackValue")]
     public int hit_damage = 10;
 
     // Player states
@@ -53,7 +56,11 @@ public class PlayerController : NetworkBehaviour {
         recharging = false;
         dazing = false;
         immovable = false;
-	}
+
+        setAttackSpeed(attack_speed);
+        setMovSpeed(movement_speed);
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -135,7 +142,8 @@ public class PlayerController : NetworkBehaviour {
             }
         }
 
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButton(0) && 
+            (GetComponent<Animator>().GetCurrentAnimatorStateInfo(1).IsName("Idle") || GetComponent<Animator>().GetCurrentAnimatorStateInfo(1).IsName("Attack Return")))
         {
             Attack();
         }
@@ -188,6 +196,9 @@ public class PlayerController : NetworkBehaviour {
         {
             transform.localScale = new Vector3(transform.localScale.x * (-1), transform.localScale.y, transform.localScale.z);
         }
+        healthBar.parent.localScale =  new Vector2(healthBar.parent.localScale.x * (-1) , healthBar.parent.localScale.y);    // Keeps HP Bar in place
+
+        Debug.Log(healthBar.parent.name);
     }
 
     [Command]
@@ -219,7 +230,25 @@ public class PlayerController : NetworkBehaviour {
     void Attack()
     {
         anim.SetTrigger("attacking");
-        network_anim.SetTrigger("attacking"); // trigger pentru NetworkAnimator (necesar ptr layere)
+        //network_anim.SetTrigger("attacking"); // trigger pentru NetworkAnimator (necesar ptr layere) - nu, nu e :)
     }
+
+    
+    public void setAttackSpeed(float attackSpeed)
+    {
+        anim.SetFloat("attack_speed", attackSpeed);
+    }
+
+    public void setMovSpeed(float movSpeed)
+    {
+        anim.SetFloat("mov_speed", movSpeed);
+    }
+
+    public void setAttackValue(int attVal)
+    {
+        hit_damage = attVal;
+    }
+
+   
 }
 

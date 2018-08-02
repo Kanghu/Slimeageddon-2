@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class WeaponScript : MonoBehaviour {
 
-    public int damage;
+    PlayerController player;
 
 	// Use this for initialization
 	void Start () {
-        damage = GetComponentInParent<PlayerController>().hit_damage;
+        player = GetComponentInParent<PlayerController>();
 	}
 	
 	// Update is called once per frame
@@ -20,7 +20,7 @@ public class WeaponScript : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerController>().TakeDamage(damage);
+            collision.gameObject.GetComponent<PlayerController>().TakeDamage(player.hit_damage);
         }
     }
 
@@ -28,7 +28,7 @@ public class WeaponScript : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerController>().TakeDamage(damage);
+            collision.gameObject.GetComponent<PlayerController>().TakeDamage(player.hit_damage);
         }
     }
 }
