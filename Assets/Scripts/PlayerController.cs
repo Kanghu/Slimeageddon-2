@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using UnityEngine.Networking;
+
+
 
 public class PlayerController : NetworkBehaviour {
 
@@ -41,7 +40,7 @@ public class PlayerController : NetworkBehaviour {
 
     bool recharging;
     bool dazing;
-    bool immovable;
+    public bool immovable;
 
     public GameObject weapon;
 
@@ -198,7 +197,7 @@ public class PlayerController : NetworkBehaviour {
         }
         healthBar.parent.localScale =  new Vector2(healthBar.parent.localScale.x * (-1) , healthBar.parent.localScale.y);    // Keeps HP Bar in place
 
-        Debug.Log(healthBar.parent.name);
+  
     }
 
     [Command]
@@ -249,6 +248,34 @@ public class PlayerController : NetworkBehaviour {
         hit_damage = attVal;
     }
 
-   
+    public void Stun(float period)
+    {
+        immovable = true;
+
+        if (!isServer)
+            CmdStun(true);
+
+        anim.SetBool("dazing", true);
+
+        Invoke("StopStun", period);
+    }
+
+
+    void StopStun()
+    {
+        immovable = false;
+
+        if (!isServer)
+            CmdStun(false);
+        
+        anim.SetBool("dazing", false);
+    }
+
+    [Command]
+    public void CmdStun(bool val)
+    {
+        immovable = val;
+    }
+
 }
 

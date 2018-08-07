@@ -300,10 +300,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\PlatformTriggerScript.cs" />
     <Compile Include="Assets\Scripts\CameraScript.cs" />
+    <Compile Include="Assets\Scripts\classViking.cs" />
+    <Compile Include="Assets\Scripts\Cooldowns.cs" />
+    <Compile Include="Assets\Scripts\PlatformTriggerScript.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\WeaponScript.cs" />
+    <Compile Include="Assets\Scripts\SwirlingAxe.cs" />
+    <Compile Include="Assets\Scripts\Viking_swirlingAxe.cs" />
+    <Compile Include="Assets\Scripts\WeaponScript.cs" />
+    <Compile Include="Assets\stunCollider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="C:\Users\dennw\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Styles\Main_Dark.uss" />
