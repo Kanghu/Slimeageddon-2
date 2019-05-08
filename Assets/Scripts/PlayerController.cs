@@ -171,7 +171,7 @@ public class PlayerController : NetworkBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Platform")
+        if(collision.gameObject.tag == "Platform" || collision.gameObject.tag == "Player")
         {
             anim.SetBool("jumping", false);
 
