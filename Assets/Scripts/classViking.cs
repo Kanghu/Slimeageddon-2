@@ -152,7 +152,7 @@ public class classViking : NetworkBehaviour {
     [Command]
     public void CmdWhirle(float ofset)
     {
-        hasAxe = false;
+        
 
         swirling_axe.SetActive(true);
         swirling_axe.GetComponent<Viking_swirlingAxe>().returning = false;
@@ -164,7 +164,7 @@ public class classViking : NetworkBehaviour {
     [ClientRpc]
     public void RpcWhirle(float ofset)
     {
-        hasAxe = false;
+       
 
         swirling_axe.SetActive(true);
         swirling_axe.GetComponent<Viking_swirlingAxe>().returning = false;

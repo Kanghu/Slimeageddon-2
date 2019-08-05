@@ -51,14 +51,7 @@ AnimationClip:
     path: Weapon/Collider
     classID: 60
     script: {fileID: 0}
-  m_PPtrCurves:
-  - curve:
-    - time: 0
-      value: {fileID: 21300000, guid: da4b0dac5b4542649a77876869c881bc, type: 3}
-    attribute: m_Sprite
-    path: Weapon
-    classID: 212
-    script: {fileID: 0}
+  m_PPtrCurves: []
   m_SampleRate: 3
   m_WrapMode: 0
   m_Bounds:
@@ -75,26 +68,18 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 1855955664
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-    - serializedVersion: 2
-      path: 1855955664
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
-    pptrCurveMapping:
-    - {fileID: 21300000, guid: da4b0dac5b4542649a77876869c881bc, type: 3}
+    pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.33333334
+    m_StopTime: 0
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
