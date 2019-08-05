@@ -141,8 +141,9 @@ public class PlayerController : NetworkBehaviour {
             }
         }
 
-        if(Input.GetMouseButton(0) && 
-            (GetComponent<Animator>().GetCurrentAnimatorStateInfo(1).IsName("Idle") || GetComponent<Animator>().GetCurrentAnimatorStateInfo(1).IsName("Attack Return")))
+        if( Input.GetMouseButton(0) && 
+            (GetComponent<Animator>().GetCurrentAnimatorStateInfo(1).IsName("Idle") ||
+            GetComponent<Animator>().GetCurrentAnimatorStateInfo(1).IsName("Attack Return") ) )
         {
             Attack();
         }
@@ -164,9 +165,7 @@ public class PlayerController : NetworkBehaviour {
 
         transform.Translate(dirVec.x * Time.deltaTime * movement_speed, 0, 0); // Movement
 
-        healthBar.sizeDelta = new Vector2(
-        hp,
-        healthBar.sizeDelta.y);
+        healthBar.sizeDelta = new Vector2(hp, healthBar.sizeDelta.y);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -226,13 +225,31 @@ public class PlayerController : NetworkBehaviour {
         healthBar.sizeDelta = new Vector2(health, healthBar.sizeDelta.y);
     }
 
+    
     void Attack()
     {
-        anim.SetTrigger("attacking");
-        //network_anim.SetTrigger("attacking"); // trigger pentru NetworkAnimator (necesar ptr layere) - nu, nu e :)
+        Debug.Log("Ataca");
+        //anim.SetTrigger("attacking");
+        if (!isServer)
+            CmdAttack(); // trigger pentru NetworkAnimator (necesar ptr layere) 
+        else
+            RpcAttack();
+        
     }
 
-    
+    [Command]
+    void CmdAttack()
+    {
+        anim.SetTrigger("attacking");
+    }
+
+    [ClientRpc]
+    void RpcAttack()
+    {
+        anim.SetTrigger("attacking");
+    }
+
+
     public void setAttackSpeed(float attackSpeed)
     {
         anim.SetFloat("attack_speed", attackSpeed);

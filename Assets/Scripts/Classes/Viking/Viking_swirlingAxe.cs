@@ -60,10 +60,12 @@ public class Viking_swirlingAxe : MonoBehaviour {
         if (collision.gameObject.CompareTag("Player") && playerTransform == collision.transform)
         {
             returning = false;
+            collision.GetComponent<classViking>().hasAxe = true;
             gameObject.SetActive(false);
         }
         else if (collision.gameObject.CompareTag("Player"))
         {
+            collision.GetComponent<PlayerController>().TakeDamage(damage);
             returning = true;
         }
     }
@@ -80,34 +82,17 @@ public class Viking_swirlingAxe : MonoBehaviour {
         if (collision.gameObject.CompareTag("Player") && playerTransform == collision.transform)
         {
             returning = false;
+            collision.GetComponent<classViking>().hasAxe = true;
             gameObject.SetActive(false);
         }
         else if (collision.gameObject.CompareTag("Player"))
         {
+            collision.GetComponent<PlayerController>().TakeDamage(damage/3);
             returning = true;
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("Intersected with " + collision.gameObject.name + " with tag: " + collision.gameObject.tag);
 
-        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Platform"))
-        {
-            returning = true;
-        }
-
-        if (collision.gameObject.CompareTag("Player") && playerTransform == collision.transform)
-        {
-            returning = false;
-            gameObject.SetActive(false);
-        }
-        else if(collision.gameObject.CompareTag("Player"))
-        {
-            returning = true;
-        }
-
-    }
 
 
 
