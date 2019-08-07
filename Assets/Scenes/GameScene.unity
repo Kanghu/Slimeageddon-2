@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 35556379}
   - component: {fileID: 35556378}
   m_Layer: 0
-  m_Name: Platform 7 (Bridge)
+  m_Name: Platform I7 (Bridge)
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -345,7 +345,7 @@ GameObject:
   m_Component:
   - component: {fileID: 59046652}
   - component: {fileID: 59046651}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform 3
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -401,7 +401,7 @@ GameObject:
   - component: {fileID: 94763120}
   - component: {fileID: 94763122}
   - component: {fileID: 94763121}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,7 +468,7 @@ GameObject:
   - component: {fileID: 135152223}
   - component: {fileID: 135152225}
   - component: {fileID: 135152224}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +534,7 @@ GameObject:
   m_Component:
   - component: {fileID: 204322171}
   - component: {fileID: 204322172}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform 9
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ Transform:
   m_Children:
   - {fileID: 485110566}
   m_Father: {fileID: 1257395555}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &204322172
 BoxCollider2D:
@@ -590,7 +590,7 @@ GameObject:
   - component: {fileID: 231158958}
   - component: {fileID: 231158960}
   - component: {fileID: 231158959}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform 7
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -609,7 +609,7 @@ Transform:
   m_Children:
   - {fileID: 262387910}
   m_Father: {fileID: 1257395555}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!68 &231158959
 EdgeCollider2D:
@@ -703,7 +703,7 @@ GameObject:
   - component: {fileID: 262387910}
   - component: {fileID: 262387911}
   - component: {fileID: 262387912}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -772,7 +772,7 @@ GameObject:
   - component: {fileID: 434634735}
   - component: {fileID: 434634737}
   m_Layer: 0
-  m_Name: Platform 3
+  m_Name: Platform I3
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -829,7 +829,7 @@ GameObject:
   m_Component:
   - component: {fileID: 460699370}
   - component: {fileID: 460699371}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform 4
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -885,7 +885,7 @@ GameObject:
   - component: {fileID: 484554857}
   - component: {fileID: 484554859}
   - component: {fileID: 484554858}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -952,7 +952,7 @@ GameObject:
   - component: {fileID: 485110566}
   - component: {fileID: 485110568}
   - component: {fileID: 485110567}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1094,7 +1094,7 @@ GameObject:
   - component: {fileID: 633657660}
   - component: {fileID: 633657662}
   - component: {fileID: 633657661}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1161,7 +1161,7 @@ GameObject:
   - component: {fileID: 633848751}
   - component: {fileID: 633848753}
   - component: {fileID: 633848752}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1390,7 +1390,7 @@ GameObject:
   - component: {fileID: 846921147}
   - component: {fileID: 846921149}
   - component: {fileID: 846921148}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1456,7 +1456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 897284185}
   - component: {fileID: 897284187}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform 1
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -1750,7 +1750,7 @@ GameObject:
   - component: {fileID: 1132425410}
   - component: {fileID: 1132425411}
   m_Layer: 0
-  m_Name: Platform 1
+  m_Name: Platform I1
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1803,7 +1803,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1224295400}
   - component: {fileID: 1224295401}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform 10
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -1822,7 +1822,7 @@ Transform:
   m_Children:
   - {fileID: 633657660}
   m_Father: {fileID: 1257395555}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1224295401
 BoxCollider2D:
@@ -1857,7 +1857,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1257395555}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trigger Platforms
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -1879,7 +1879,6 @@ Transform:
   - {fileID: 59046652}
   - {fileID: 460699370}
   - {fileID: 2016581677}
-  - {fileID: 1599567822}
   - {fileID: 231158958}
   - {fileID: 1319471229}
   - {fileID: 204322171}
@@ -1897,7 +1896,7 @@ GameObject:
   - component: {fileID: 1264350352}
   - component: {fileID: 1264350353}
   m_Layer: 0
-  m_Name: Platform 6
+  m_Name: Platform I6
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1950,7 +1949,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1319471229}
   - component: {fileID: 1319471230}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform 8
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -1969,7 +1968,7 @@ Transform:
   m_Children:
   - {fileID: 94763120}
   m_Father: {fileID: 1257395555}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1319471230
 BoxCollider2D:
@@ -2006,7 +2005,7 @@ GameObject:
   - component: {fileID: 1357534514}
   - component: {fileID: 1357534515}
   m_Layer: 0
-  m_Name: Platform 4
+  m_Name: Platform I4
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2095,7 +2094,7 @@ GameObject:
   - component: {fileID: 1501072583}
   - component: {fileID: 1501072584}
   m_Layer: 0
-  m_Name: Platform 5
+  m_Name: Platform I5
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2149,7 +2148,7 @@ GameObject:
   - component: {fileID: 1593629029}
   - component: {fileID: 1593629030}
   m_Layer: 0
-  m_Name: Platform 2
+  m_Name: Platform I2
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2203,7 +2202,7 @@ GameObject:
   - component: {fileID: 1596028583}
   - component: {fileID: 1596028585}
   - component: {fileID: 1596028584}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2260,61 +2259,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8974885, y: 0.11378658}
   m_EdgeRadius: 0
---- !u!1 &1599567819
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1599567822}
-  - component: {fileID: 1599567821}
-  m_Layer: 0
-  m_Name: Platform 6
-  m_TagString: Platform
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!61 &1599567821
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1599567819}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.2185607, y: -0.28249478}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.4371221, y: 0.17982805}
-  m_EdgeRadius: 0
---- !u!4 &1599567822
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1599567819}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.592, y: -1.885, z: 0}
-  m_LocalScale: {x: 0.68162996, y: 0.68162996, z: 0.68162996}
-  m_Children:
-  - {fileID: 2054631069}
-  m_Father: {fileID: 1257395555}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1672440612
 Prefab:
   m_ObjectHideFlags: 0
@@ -2366,7 +2310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1737047152}
   - component: {fileID: 1737047151}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform 2
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -2508,11 +2452,11 @@ MonoBehaviour:
   dampTime: 0.15
   followParent: 0
   target: {fileID: 0}
-  border: 1
-  minX: -0.81
-  maxX: 0.81
-  minY: -0.69
-  maxY: 0.7
+  border: 0
+  minX: 0
+  maxX: 0
+  minY: 0
+  maxY: 0
 --- !u!1 &2016581674
 GameObject:
   m_ObjectHideFlags: 0
@@ -2522,7 +2466,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2016581677}
   - component: {fileID: 2016581676}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform 5
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -2661,70 +2605,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &2054631068
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 2054631069}
-  - component: {fileID: 2054631071}
-  - component: {fileID: 2054631070}
-  m_Layer: 0
-  m_Name: Trigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2054631069
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2054631068}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.04, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1599567822}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2054631070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2054631068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96c19db62ef9a24985b16656e84f580, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myCollider: {fileID: 1599567821}
---- !u!61 &2054631071
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2054631068}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.21908134, y: -0.46156555}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.7935013, y: 0.074487835}
-  m_EdgeRadius: 0

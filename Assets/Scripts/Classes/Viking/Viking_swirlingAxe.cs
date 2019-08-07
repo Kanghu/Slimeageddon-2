@@ -7,6 +7,7 @@ public class Viking_swirlingAxe : MonoBehaviour {
 
     public Transform playerTransform;
 
+    
     public bool faceRight;
     public bool returning;
     public float movement_speed = 8f;
@@ -17,17 +18,22 @@ public class Viking_swirlingAxe : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+         
 
-        if(!faceRight && transform.localScale.x > 0)
+        if (!faceRight && transform.localScale.x > 0)
             transform.localScale = new Vector3( - transform.localScale.x, transform.localScale.y, transform.localScale.z);
+
         else if(faceRight && transform.localScale.x < 0)
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
+
+        //  Make swirling axe come back
         if (returning)
         {  
             transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, return_speed * Time.deltaTime);
         }
 
+        //  Make swirling axe go
         else
         {
 

@@ -9,6 +9,7 @@ public class classViking : NetworkBehaviour {
     Animator anim;
     Transform PlayerRect;
     Cooldowns CD;   // To Be Implemented
+    private float lastAttack = 0;
 
     public bool hasAxe = true;
     public GameObject swirling_axe;
@@ -51,6 +52,13 @@ public class classViking : NetworkBehaviour {
             return;
         }
 
+        if (Input.GetMouseButton(0) && hasAxe &&
+            (GetComponent<Animator>().GetCurrentAnimatorStateInfo(1).IsName("Idle") ||
+            GetComponent<Animator>().GetCurrentAnimatorStateInfo(1).IsName("Attack Return")) && Time.time - lastAttack > 0.15f)
+        {
+            lastAttack = Time.time;
+            Attack();
+        }
 
 
         if (Input.GetKeyDown(KeyCode.Q) && !playerScript.immovable)
@@ -133,6 +141,29 @@ public class classViking : NetworkBehaviour {
             }
 
         }
+    }
+
+    void Attack()
+    {
+        if (!isServer)
+        {
+            anim.SetTrigger("attacking");
+            CmdAttack();
+        }
+        else
+            RpcAttack();
+    }
+
+    [Command]
+    void CmdAttack()
+    {
+        anim.SetTrigger("attacking");
+    }
+
+    [ClientRpc]
+    void RpcAttack()
+    {
+        anim.SetTrigger("attacking");
     }
 
     void DisableCollider()

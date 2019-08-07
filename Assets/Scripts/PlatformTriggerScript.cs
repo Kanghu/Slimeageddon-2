@@ -8,7 +8,7 @@ public class PlatformTriggerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+     //   myCollider = GetComponentInParent<Collider2D>();
 	}
 	
 	// Update is called once per frame
@@ -18,9 +18,10 @@ public class PlatformTriggerScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.gameObject.CompareTag("Player"))
         {
-            Physics2D.IgnoreCollision(myCollider, collision, true);
+            Physics2D.IgnoreCollision(myCollider, collision.gameObject.GetComponent<Collider2D>(), true);
         }
     }
 

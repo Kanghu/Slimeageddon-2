@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 114214868880429196}
   - component: {fileID: 50809518383340266}
   - component: {fileID: 61707133359116040}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Viking
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -417,7 +417,6 @@ MonoBehaviour:
   attack_speed: 2.5
   jump_velocity: 6
   hit_damage: 2
-  lastJump: 0
   jumps: 0
   immovable: 0
   weapon: {fileID: 1443645685280142}
@@ -437,8 +436,8 @@ MonoBehaviour:
   m_SyncRotationAxis: 4
   m_RotationSyncCompression: 0
   m_SyncSpin: 1
-  m_MovementTheshold: 0
-  m_VelocityThreshold: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1

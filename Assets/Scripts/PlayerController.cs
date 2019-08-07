@@ -13,6 +13,8 @@ public class PlayerController : NetworkBehaviour {
     [SyncVar(hook = "Turn")]
     public bool faceRight;
 
+ 
+
 
     // Player characteristics
     [SyncVar(hook = "HealthChange")]
@@ -33,7 +35,7 @@ public class PlayerController : NetworkBehaviour {
     public int hit_damage = 10;
 
     // Player states
-    public float lastJump;
+    private float lastJump;
     public int jumps;
 
     // Player states
@@ -55,6 +57,8 @@ public class PlayerController : NetworkBehaviour {
         recharging = false;
         dazing = false;
         immovable = false;
+
+        
 
         setAttackSpeed(attack_speed);
         setMovSpeed(movement_speed);
@@ -101,7 +105,7 @@ public class PlayerController : NetworkBehaviour {
         {
             if(faceRight)
             {
-                faceRight = !faceRight;
+                Turn(false);
 
                 if (!isServer) // If it isn't the server, faceRight needs to be updated on server in order for the hook to be called
                     CmdTurn();
@@ -112,7 +116,7 @@ public class PlayerController : NetworkBehaviour {
         {
             if (!faceRight)
             {
-                faceRight = !faceRight;
+                Turn(true);
 
                 if (!isServer) // If it isn't the server, faceRight needs to be updated on server in order for the hook to be called
                     CmdTurn();
@@ -141,13 +145,7 @@ public class PlayerController : NetworkBehaviour {
             }
         }
 
-        if( Input.GetMouseButton(0) && 
-            (GetComponent<Animator>().GetCurrentAnimatorStateInfo(1).IsName("Idle") ||
-            GetComponent<Animator>().GetCurrentAnimatorStateInfo(1).IsName("Attack Return") ) )
-        {
-            Attack();
-        }
-
+        
 
         if (Input.GetKeyDown(KeyCode.S))
         {
@@ -185,6 +183,8 @@ public class PlayerController : NetworkBehaviour {
 
     void Turn(bool facingRight) // Called everytime faceRight is changed (but ONLY ON SERVER!)
     {
+        faceRight = facingRight;
+
         if(transform.localScale.x < 0 && facingRight)
         {
             transform.localScale = new Vector3(transform.localScale.x * (-1), transform.localScale.y, transform.localScale.z);
@@ -196,13 +196,14 @@ public class PlayerController : NetworkBehaviour {
         }
         healthBar.parent.localScale =  new Vector2(healthBar.parent.localScale.x * (-1) , healthBar.parent.localScale.y);    // Keeps HP Bar in place
 
-  
+        
     }
 
     [Command]
     void CmdTurn()
     {
         faceRight = !faceRight;
+
     }
 
     public override void OnStartLocalPlayer()
@@ -226,28 +227,7 @@ public class PlayerController : NetworkBehaviour {
     }
 
     
-    void Attack()
-    {
-        Debug.Log("Ataca");
-        //anim.SetTrigger("attacking");
-        if (!isServer)
-            CmdAttack(); // trigger pentru NetworkAnimator (necesar ptr layere) 
-        else
-            RpcAttack();
-        
-    }
-
-    [Command]
-    void CmdAttack()
-    {
-        anim.SetTrigger("attacking");
-    }
-
-    [ClientRpc]
-    void RpcAttack()
-    {
-        anim.SetTrigger("attacking");
-    }
+   
 
 
     public void setAttackSpeed(float attackSpeed)
