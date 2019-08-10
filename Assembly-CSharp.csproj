@@ -61,10 +61,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\PlatformTriggerScript.cs" />
     <Compile Include="Assets\Scripts\CameraScript.cs" />
+    <Compile Include="Assets\Scripts\classViking.cs" />
+    <Compile Include="Assets\Scripts\Cooldowns.cs" />
+    <Compile Include="Assets\Scripts\PlatformTriggerScript.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\WeaponScript.cs" />
+    <Compile Include="Assets\Scripts\SwirlingAxe.cs" />
+    <Compile Include="Assets\Scripts\Viking_swirlingAxe.cs" />
+    <Compile Include="Assets\Scripts\WeaponScript.cs" />
+    <Compile Include="Assets\stunCollider.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Kanghu/Desktop/Slimeageddon/Slimeageddon/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
