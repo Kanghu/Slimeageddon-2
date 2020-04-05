@@ -15,7 +15,7 @@ public class Entity extends PhysicalObject {
     /**
      * The direction we are currently facing
      */
-    Direction direction;
+    Direction direction = Direction.LEFT;
 
     /**
      * The speed we are capable of moving at
@@ -28,12 +28,17 @@ public class Entity extends PhysicalObject {
      */
     float jumpingSpeed;
 
+    /**
+     * Whether we are moving or not
+     */
+    boolean isMoving;
+
     public Entity(Location loc){
         super(loc);
     }
 
-    public Entity(Location loc, Body body){
-        super(loc, body);
+    public Entity(Location loc, float width, float height){
+        super(loc, width, height);
     }
 
     /***
@@ -81,5 +86,13 @@ public class Entity extends PhysicalObject {
 
     public void setJumpingSpeed(float js){
         this.jumpingSpeed = js;
+    }
+
+    public boolean isMoving(){
+        return this.isMoving;
+    }
+
+    public void toggleMoving(){
+        this.isMoving = !this.isMoving;
     }
 }

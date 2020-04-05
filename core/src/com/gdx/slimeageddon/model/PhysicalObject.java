@@ -9,6 +9,8 @@ import com.badlogic.gdx.physics.box2d.Body;
 
 public class PhysicalObject extends GameObject {
 
+    float width, height;
+
     /** The physical body **/
     Body body;
 
@@ -16,8 +18,10 @@ public class PhysicalObject extends GameObject {
         super(loc);
     }
 
-    public PhysicalObject(Location loc, Body body){
+    public PhysicalObject(Location loc, float width, float height){
         super(loc);
+        setWidth(width);
+        setHeight(height);
     }
 
     /***

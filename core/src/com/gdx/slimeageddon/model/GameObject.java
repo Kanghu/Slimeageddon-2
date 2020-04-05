@@ -12,6 +12,8 @@ abstract public class GameObject {
      */
     Location location;
 
+    float width, height;
+
     public GameObject(Location loc){
         this.location = loc;
     }
@@ -25,4 +27,12 @@ abstract public class GameObject {
     public void setLocation(Location loc){
         this.location = loc;
     }
+
+    public float getWidth() { return this.width; }
+
+    public float getHeight() { return this.height; }
+
+    public void setWidth(float w) { this.width = w; }
+
+    public void setHeight(float h) { this.height = h; }
 }
