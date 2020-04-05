@@ -3,7 +3,7 @@ package com.gdx.slimeageddon.client;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
-import com.gdx.slimeageddon.MyGdxGame;
+import com.gdx.slimeageddon.view.MyGdxGame;
 
 public class HtmlLauncher extends GwtApplication {
 
