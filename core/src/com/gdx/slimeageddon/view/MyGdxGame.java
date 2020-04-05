@@ -1,4 +1,4 @@
-package com.gdx.slimeageddon;
+package com.gdx.slimeageddon.view;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
