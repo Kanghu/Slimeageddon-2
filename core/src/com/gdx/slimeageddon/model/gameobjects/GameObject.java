@@ -1,4 +1,6 @@
-package com.gdx.slimeageddon.model;
+package com.gdx.slimeageddon.model.gameobjects;
+
+import com.gdx.slimeageddon.model.util.Location;
 
 /***
  * Abstract class representing a game object from which all other
@@ -7,10 +9,12 @@ package com.gdx.slimeageddon.model;
 
 abstract public class GameObject {
 
+    public String name = "GameObject";
+
     /***
      * The object's location in game's representation
      */
-    Location location;
+    protected Location location;
 
     float width, height;
 
@@ -35,4 +39,12 @@ abstract public class GameObject {
     public void setWidth(float w) { this.width = w; }
 
     public void setHeight(float h) { this.height = h; }
+
+    public void setName(String name) { this.name = name; }
+
+    @Override
+    public String toString(){
+        return this.name;
+    }
+
 }

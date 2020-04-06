@@ -1,4 +1,4 @@
-package com.gdx.slimeageddon.model;
+package com.gdx.slimeageddon.model.util;
 
 public class Location {
     float x, y;

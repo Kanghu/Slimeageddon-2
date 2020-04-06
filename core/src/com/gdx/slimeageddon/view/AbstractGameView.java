@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Disposable;
 import com.gdx.slimeageddon.model.AbstractGame;
-import com.gdx.slimeageddon.model.PhysicalObject;
+import com.gdx.slimeageddon.model.gameobjects.PhysicalObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +35,7 @@ public class AbstractGameView implements Disposable {
         for(int i=0; i<sprites.size(); i++){
             sprites.get(i).setPosition(game.getGameObjects().get(i).getLocation().getX(),
                     game.getGameObjects().get(i).getLocation().getY());
+
             batch.draw(sprites.get(i), sprites.get(i).getX(), sprites.get(i).getY());
         }
     }

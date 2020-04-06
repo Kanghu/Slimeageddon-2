@@ -1,6 +1,6 @@
-package com.gdx.slimeageddon.model;
+package com.gdx.slimeageddon.model.gameobjects;
 
-import com.badlogic.gdx.physics.box2d.Body;
+import com.gdx.slimeageddon.model.util.Location;
 import com.gdx.slimeageddon.model.util.Direction;
 
 /***
@@ -20,13 +20,13 @@ public class Entity extends PhysicalObject {
     /**
      * The speed we are capable of moving at
      */
-    float movingSpeed;
+    float movingSpeed = 5f;
 
     /**
      * The force we may apply upwards (jumping)
      * @param loc
      */
-    float jumpingSpeed;
+    float jumpingSpeed = 50f;
 
     /**
      * Whether we are moving or not
@@ -60,6 +60,13 @@ public class Entity extends PhysicalObject {
      */
     public void jump(){
         body.applyForceToCenter(0f, jumpingSpeed, true);
+    }
+
+    /**
+     * Turn the direction towards the opposite
+     */
+    public void turn(Direction dir){
+        this.direction = dir;
     }
 
     /** Setters and getters **/

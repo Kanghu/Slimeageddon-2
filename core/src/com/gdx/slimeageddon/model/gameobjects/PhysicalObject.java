@@ -1,6 +1,7 @@
-package com.gdx.slimeageddon.model;
+package com.gdx.slimeageddon.model.gameobjects;
 
 import com.badlogic.gdx.physics.box2d.Body;
+import com.gdx.slimeageddon.model.util.Location;
 
 /***
  * Simple GameObject that has a physical dimension, that is,
@@ -9,6 +10,18 @@ import com.badlogic.gdx.physics.box2d.Body;
 
 public class PhysicalObject extends GameObject {
 
+    /***
+     * Defines the offset between the object's true location
+     * and its location within the physics engine.
+     *
+     * The object has a size within the engine of: size / PHYSICS_RATIO
+     */
+    static final float PHYSICS_RATIO = 10f;
+
+    /***
+     * Width and height of the physical object.
+     * X and Y are the bottom-left corner of this shape, by convention
+     */
     float width, height;
 
     /** The physical body **/
@@ -26,11 +39,12 @@ public class PhysicalObject extends GameObject {
 
     /***
      * Update GameObject's Location according to the body's
-     * position.
+     * position. The object's coordinates are translated
+     * into Box2D coordinates and any offset is taken into consideration.
      */
     public void updateLocation(){
-        this.getLocation().setX(body.getPosition().x);
-        this.getLocation().setY(body.getPosition().y);
+        this.location.setX((body.getPosition().x * PHYSICS_RATIO) - (this.getWidth() / 2));
+        this.location.setY((body.getPosition().y * PHYSICS_RATIO) - (this.getHeight() / 2));
     }
 
     /***
