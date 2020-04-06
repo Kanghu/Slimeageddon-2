@@ -39,7 +39,7 @@ public class AbstractGame implements Disposable {
     /***
      * The collection of GameObjects
      */
-    private List<com.gdx.slimeageddon.model.gameobjects.GameObject> gameObjects;
+    private List<GameObject> gameObjects;
 
     /***
      * The physics Box2D world

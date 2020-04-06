@@ -31,6 +31,7 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 		Entity en = new Entity(
 				new Location(50f, 50f),
 				32f, 32f);
+		/* Provisory */
 		en.setName("Player");
 
 		game.addObject(en);
@@ -40,8 +41,6 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 		debugRenderer = new Box2DDebugRenderer();
 		camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.
 				getHeight());
-
-
 
 
 		gameView = new AbstractGameView(game);
@@ -59,12 +58,13 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 		gameView.draw(batch);
 
 		batch.setProjectionMatrix(camera.combined);
-		// Scale down the sprite batches projection matrix to box2D size
+		/* Scale down the sprite batches projection matrix to box2D size */
 		debugMatrix = batch.getProjectionMatrix().cpy().scale(game.PHYSICS_RATIO,
 				game.PHYSICS_RATIO, 0);
 
 		batch.end();
 
+		/* Render Box2D debug view */
 		debugRenderer.render(game.getPhysicsWorld(), debugMatrix);
 	}
 	
