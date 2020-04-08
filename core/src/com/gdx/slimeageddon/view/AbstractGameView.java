@@ -6,7 +6,9 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Disposable;
 import com.gdx.slimeageddon.model.AbstractGame;
+import com.gdx.slimeageddon.model.gameobjects.GameObject;
 import com.gdx.slimeageddon.model.gameobjects.PhysicalObject;
+import com.gdx.slimeageddon.model.util.Location;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +25,7 @@ public class AbstractGameView implements Disposable {
 
         img = new Texture(Gdx.files.internal("resources/Sprites/Characters/Samurai/Ice Stun.png"));
 
-        for(PhysicalObject obj : game.getGameObjects()){
+        for(GameObject obj : game.getGameObjects()){
             Sprite sprite = new Sprite(img);
             sprite.setPosition(obj.getLocation().getX(),
                     obj.getLocation().getY());
@@ -33,10 +35,14 @@ public class AbstractGameView implements Disposable {
 
     public void draw(SpriteBatch batch){
         for(int i=0; i<sprites.size(); i++){
-            sprites.get(i).setPosition(game.getGameObjects().get(i).getLocation().getX(),
-                    game.getGameObjects().get(i).getLocation().getY());
+            Sprite toDraw = sprites.get(i);
+            GameObject object = game.getGameObjects().get(i);
+            Location loc = object.getLocation();
 
-            batch.draw(sprites.get(i), sprites.get(i).getX(), sprites.get(i).getY());
+            toDraw.setPosition(loc.getX(), loc.getY());
+
+            batch.draw(toDraw, toDraw.getX(), toDraw.getY(),
+                    object.getWidth(), object.getHeight());
         }
     }
 

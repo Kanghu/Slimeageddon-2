@@ -1,6 +1,7 @@
 package com.gdx.slimeageddon.model.gameobjects;
 
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.gdx.slimeageddon.model.util.Location;
 
 /***
@@ -16,25 +17,40 @@ public class PhysicalObject extends GameObject {
      *
      * The object has a size within the engine of: size / PHYSICS_RATIO
      */
-    static final float PHYSICS_RATIO = 10f;
+    static final float PHYSICS_RATIO = 100f;
 
     /***
      * Width and height of the physical object.
-     * X and Y are the bottom-left corner of this shape, by convention
+     * X and Y are the bottom-left corner of this shape, by convention.
      */
     float width, height;
 
-    /** The physical body **/
-    Body body;
+    /**
+     * The Box2D Body object
+     */
+    private Body body;
+
+    /***
+     * The Box2D Body's type
+     */
+    private BodyDef.BodyType bodyType;
 
     public PhysicalObject(Location loc){
         super(loc);
     }
 
     public PhysicalObject(Location loc, float width, float height){
-        super(loc);
+        this(loc);
         setWidth(width);
         setHeight(height);
+
+        /* By default, the body is instantiated as dynamic */
+        this.bodyType = BodyDef.BodyType.DynamicBody;
+    }
+
+    public PhysicalObject(Location loc, float width, float height, BodyDef.BodyType bodyType){
+        this(loc, width, height);
+        this.bodyType = bodyType;
     }
 
     /***
@@ -52,8 +68,7 @@ public class PhysicalObject extends GameObject {
      */
     protected void updateBody(){
         this.body.getPosition().set(this.getLocation().getX(),
-                                    this.getLocation().getY()
-        );
+                                    this.getLocation().getY());
     }
 
     /** Setters and getters **/
@@ -72,4 +87,7 @@ public class PhysicalObject extends GameObject {
         return this.body;
     }
 
+    public BodyDef.BodyType getBodyType() { return this.bodyType; }
+
+    public void setBodyType(BodyDef.BodyType type) { this.bodyType = type; }
 }

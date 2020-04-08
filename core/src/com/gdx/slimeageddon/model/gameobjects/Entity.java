@@ -20,7 +20,7 @@ public class Entity extends PhysicalObject {
     /**
      * The speed we are capable of moving at
      */
-    float movingSpeed = 5f;
+    float movingSpeed = 2f;
 
     /**
      * The force we may apply upwards (jumping)
@@ -47,10 +47,10 @@ public class Entity extends PhysicalObject {
     public void move(){
         switch(this.direction){
             case RIGHT:
-                body.setLinearVelocity(movingSpeed, 0f);
+                this.getBody().setLinearVelocity(movingSpeed, 0f);
                 break;
             case LEFT:
-                body.setLinearVelocity((-1) * movingSpeed, 0f);
+                this.getBody().setLinearVelocity((-1) * movingSpeed, 0f);
                 break;
         }
     }
@@ -59,7 +59,7 @@ public class Entity extends PhysicalObject {
      * Apply an upwards force equal to 'jumpingSpeed'
      */
     public void jump(){
-        body.applyForceToCenter(0f, jumpingSpeed, true);
+        this.getBody().applyForceToCenter(0f, jumpingSpeed, true);
     }
 
     /**

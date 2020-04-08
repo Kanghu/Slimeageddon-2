@@ -7,7 +7,7 @@ import com.gdx.slimeageddon.model.util.Location;
  * game objects are derived.
  */
 
-abstract public class GameObject {
+public class GameObject {
 
     public String name = "GameObject";
 
@@ -20,6 +20,8 @@ abstract public class GameObject {
 
     public GameObject(Location loc){
         this.location = loc;
+        setWidth(0);
+        setHeight(0);
     }
 
     /** Setters and getters **/

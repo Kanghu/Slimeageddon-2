@@ -6,11 +6,15 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Matrix4;
+import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.gdx.slimeageddon.model.AbstractGame;
 import com.gdx.slimeageddon.model.gameobjects.Entity;
+import com.gdx.slimeageddon.model.gameobjects.GameObject;
+import com.gdx.slimeageddon.model.gameobjects.PhysicalObject;
 import com.gdx.slimeageddon.model.util.Location;
 
 public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
@@ -22,19 +26,35 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 	Box2DDebugRenderer debugRenderer;
 	Matrix4 debugMatrix;
 	OrthographicCamera camera;
+
+	BitmapFont font;
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 
-		game = new AbstractGame();
+		font = new BitmapFont();
+
+		System.out.println(Gdx.graphics.getWidth());
+		System.out.println(Gdx.graphics.getHeight());
+		game = new AbstractGame(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		Entity en = new Entity(
-				new Location(50f, 50f),
-				32f, 32f);
+				new Location(0f, 0f),
+				64f, 64f);
+
+		GameObject atZero = new GameObject(new Location(0f, 0f));
+
+		PhysicalObject ground = new PhysicalObject(
+				new Location((-1) * Gdx.graphics.getWidth() / 2, (-1) * Gdx.graphics.getHeight() / 2),
+				1000f, 1f,
+				BodyDef.BodyType.StaticBody);
+
 		/* Provisory */
 		en.setName("Player");
 
 		game.addObject(en);
+		game.addObject(ground);
+		game.addObject(atZero);
 		game.initWorld();
 
 		/* Box2D Debug */
@@ -61,6 +81,10 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 		/* Scale down the sprite batches projection matrix to box2D size */
 		debugMatrix = batch.getProjectionMatrix().cpy().scale(game.PHYSICS_RATIO,
 				game.PHYSICS_RATIO, 0);
+
+		/* Print position */
+		font.draw(batch, String.valueOf(game.findObjectByName("Player").getLocation().getX())
+				+ " " + String.valueOf(game.findObjectByName("Player").getLocation().getY()), 0, 0);
 
 		batch.end();
 

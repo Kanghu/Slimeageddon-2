@@ -22,9 +22,14 @@ import java.util.List;
 public class AbstractGame implements Disposable {
 
     /***
+     * The game world's size.
+     */
+    private float width, height;
+
+    /***
      * Physics engine constraints
      */
-    static final float DEFAULT_GRAVITY = 0.05f;
+    static final float DEFAULT_GRAVITY = 9.8f;
     static final int WORLD_VELOCITY_ITERATIONS = 6;
     static final int WORLD_POSITION_ITEATIONS = 2;
 
@@ -34,7 +39,7 @@ public class AbstractGame implements Disposable {
      *
      * The game has a size within the engine of: size / PHYSICS_RATIO
      */
-    public final float PHYSICS_RATIO = 10f;
+    public final float PHYSICS_RATIO = 100f;
 
     /***
      * The collection of GameObjects
@@ -46,8 +51,10 @@ public class AbstractGame implements Disposable {
      */
     private World world;
 
-    public AbstractGame() {
+    public AbstractGame(float width, float height) {
         this.gameObjects = new ArrayList<GameObject>();
+        this.width = width;
+        this.height = height;
     }
 
     /***
@@ -58,11 +65,11 @@ public class AbstractGame implements Disposable {
         world = new World(new Vector2(0, (-1) * this.DEFAULT_GRAVITY), true);
 
         /* Instantiate each GameObject */
-        for(com.gdx.slimeageddon.model.gameobjects.GameObject obj : this.getGameObjects()){
+        for(GameObject obj : this.getGameObjects()){
 
             /* If object is present within the physics engine */
             if(obj instanceof com.gdx.slimeageddon.model.gameobjects.PhysicalObject){
-                initObject(world, (com.gdx.slimeageddon.model.gameobjects.PhysicalObject) obj);
+                initObject(world, (PhysicalObject) obj);
             }
         }
     }
@@ -72,10 +79,10 @@ public class AbstractGame implements Disposable {
      * @param world Box2D world
      * @param obj A physical game object
      */
-    protected void initObject(World world, com.gdx.slimeageddon.model.gameobjects.PhysicalObject obj){
+    protected void initObject(World world, PhysicalObject obj){
         /* Initialize the BodyDef carrying a Body definition */
         BodyDef bodyDef = new BodyDef();
-        bodyDef.type = BodyDef.BodyType.DynamicBody;
+        bodyDef.type = obj.getBodyType();
 
         /* Translate the GameObject coordinates to Box2D coords, */
         /* this is required due to different coordinate systems. */
@@ -116,9 +123,9 @@ public class AbstractGame implements Disposable {
      * Update all GameObjects according to the physics engine
      */
     protected void updateObjects(){
-        for(com.gdx.slimeageddon.model.gameobjects.GameObject obj : this.getGameObjects()){
-            if(obj instanceof com.gdx.slimeageddon.model.gameobjects.PhysicalObject){
-                com.gdx.slimeageddon.model.gameobjects.PhysicalObject physObj = (com.gdx.slimeageddon.model.gameobjects.PhysicalObject) obj;
+        for(GameObject obj : this.getGameObjects()){
+            if(obj instanceof PhysicalObject){
+                PhysicalObject physObj = (PhysicalObject) obj;
                 physObj.updateLocation();
             }
         }
@@ -126,16 +133,16 @@ public class AbstractGame implements Disposable {
 
     /** Setters and getters **/
 
-    public ArrayList<PhysicalObject> getGameObjects() {
+    public ArrayList<GameObject> getGameObjects() {
         return new ArrayList(this.gameObjects);
     }
 
-    public void addObject(PhysicalObject obj){
+    public void addObject(GameObject obj){
         this.gameObjects.add(obj);
     }
 
     public GameObject findObjectByName(String name){
-        for(PhysicalObject obj : this.getGameObjects()){
+        for(GameObject obj : this.getGameObjects()){
             if(obj.toString().equals(name)){
                 return obj;
             }
@@ -150,7 +157,7 @@ public class AbstractGame implements Disposable {
 
     // TO DO: Write this smarter
     public void execute(String name, String action){
-        com.gdx.slimeageddon.model.gameobjects.Entity ent = (Entity) this.findObjectByName(name);
+        Entity ent = (Entity) this.findObjectByName(name);
 
         if(ent != null){
             if(action == "move"){
@@ -164,6 +171,15 @@ public class AbstractGame implements Disposable {
             }
         }
     }
+
+    public void resize(float width, float height){
+        this.width = width;
+        this.height = height;
+    }
+
+    public float getWidth() { return this.width; }
+
+    public float getHeight(){ return this.height; }
 
     /***
      * Dispose of all libGdx elements
