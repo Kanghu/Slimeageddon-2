@@ -19,12 +19,6 @@ public class PhysicalObject extends GameObject {
      */
     static final float PHYSICS_RATIO = 100f;
 
-    /***
-     * Width and height of the physical object.
-     * X and Y are the bottom-left corner of this shape, by convention.
-     */
-    float width, height;
-
     /**
      * The Box2D Body object
      */

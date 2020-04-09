@@ -9,17 +9,28 @@ import com.gdx.slimeageddon.model.util.Location;
 
 public class GameObject {
 
-    public String name = "GameObject";
+    /***
+     * The ID is an unique identifier pertant to a specific GameObject.
+     */
+    private int ID;
+
+    private String name = "GameObject";
 
     /***
-     * The object's location in game's representation
+     * The object's location in game's representation.
      */
     protected Location location;
 
-    float width, height;
+    /***
+     * Width and height of the physical object.
+     * X and Y are the bottom-left corner of this shape, by convention.
+     */
+    private float width, height;
 
     public GameObject(Location loc){
         this.location = loc;
+
+        /* Simple GameObject has no physical size by default */
         setWidth(0);
         setHeight(0);
     }
@@ -37,6 +48,8 @@ public class GameObject {
     public float getWidth() { return this.width; }
 
     public float getHeight() { return this.height; }
+
+    public int getID() { return this.ID; }
 
     public void setWidth(float w) { this.width = w; }
 

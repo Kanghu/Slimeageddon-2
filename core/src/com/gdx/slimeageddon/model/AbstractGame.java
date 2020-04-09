@@ -68,7 +68,7 @@ public class AbstractGame implements Disposable {
         for(GameObject obj : this.getGameObjects()){
 
             /* If object is present within the physics engine */
-            if(obj instanceof com.gdx.slimeageddon.model.gameobjects.PhysicalObject){
+            if(obj instanceof PhysicalObject){
                 initObject(world, (PhysicalObject) obj);
             }
         }
@@ -97,9 +97,11 @@ public class AbstractGame implements Disposable {
         shape.setAsBox((obj.getWidth() / 2) / PHYSICS_RATIO,
                 (obj.getHeight() / 2) / PHYSICS_RATIO);
 
+        /* Define body's Fixture */
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
         fixtureDef.density = 1f;
+        fixtureDef.friction = 0f;
 
         Fixture fixture = body.createFixture(fixtureDef);
 
@@ -161,7 +163,7 @@ public class AbstractGame implements Disposable {
 
         if(ent != null){
             if(action == "move"){
-                ent.move();
+                ent.toggleMoving();
             } else if(action == "turn right"){
                 ent.turn(Direction.RIGHT);
             } else if(action == "turn left"){

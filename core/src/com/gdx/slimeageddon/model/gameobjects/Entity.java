@@ -31,7 +31,7 @@ public class Entity extends PhysicalObject {
     /**
      * Whether we are moving or not
      */
-    boolean isMoving;
+    boolean isMoving = false;
 
     public Entity(Location loc){
         super(loc);
@@ -99,7 +99,20 @@ public class Entity extends PhysicalObject {
         return this.isMoving;
     }
 
-    public void toggleMoving(){
+    public void toggleMoving() {
         this.isMoving = !this.isMoving;
+
+        if(isMoving()){
+            switch(this.direction){
+                case RIGHT:
+                    this.getBody().setLinearVelocity(movingSpeed, 0f);
+                    break;
+                case LEFT:
+                    this.getBody().setLinearVelocity((-1) * movingSpeed, 0f);
+                    break;
+            }
+        } else {
+            this.getBody().setLinearVelocity(0f, 0f);
+        }
     }
 }

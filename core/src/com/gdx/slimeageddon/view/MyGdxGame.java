@@ -84,7 +84,9 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 
 		/* Print position */
 		font.draw(batch, String.valueOf(game.findObjectByName("Player").getLocation().getX())
-				+ " " + String.valueOf(game.findObjectByName("Player").getLocation().getY()), 0, 0);
+				+ " " + String.valueOf(game.findObjectByName("Player").getLocation().getY()),
+				game.getWidth() / 3,
+				game.getHeight() / 2);
 
 		batch.end();
 
@@ -104,7 +106,20 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 	public boolean keyUp(int keycode) {
 		/* Intermediary movement */
 		if (keycode == Input.Keys.D) {
-			System.out.println("Right key");
+			game.execute("Player", "move");
+		}
+
+		if (keycode == Input.Keys.A) {
+			game.execute("Player", "move");
+		}
+
+		return true;
+	}
+
+	@Override
+	public boolean keyDown(int keycode) {
+		/* Intermediary movement */
+		if (keycode == Input.Keys.D) {
 			game.execute("Player", "turn right");
 			game.execute("Player", "move");
 		}
@@ -122,22 +137,13 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 	}
 
 	@Override
-	public boolean keyDown(int keycode) {
-		return false;
-	}
-
-	@Override
 	public boolean keyTyped(char character) {
 		return false;
 	}
 
 
-	// On touch we apply force from the direction of the users touch.
-	// This could result in the object "spinning"
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		//body.applyForce(1f,1f,screenX,screenY,true);
-		//body.applyTorque(0.4f,true);
 		return true;
 	}
 
