@@ -13,7 +13,8 @@ public enum TextureSheet {
     NONE ("", GameObjectType.DEFAULT),
     MAP_VALLEY ("resources/Sprites/Maps/map_1.png", GameObjectType.MAP_VALLEY),
     BRIDGE ("resources/Sprites/Objects/Bridge.png", GameObjectType.BRIDGE),
-    PORTAL ("resources/Sprites/Objects/Portal.png", GameObjectType.PORTAL);
+    PORTAL ("resources/Sprites/Objects/Portal.png", GameObjectType.PORTAL),
+    PLAYER ("resources/Sprites/Characters/Samurai/Ice Stun.png", GameObjectType.SAMURAI);
 
     private final String texturePath;
     private final GameObjectType type;

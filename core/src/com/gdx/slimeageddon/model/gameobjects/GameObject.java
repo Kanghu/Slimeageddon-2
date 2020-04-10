@@ -20,7 +20,7 @@ public class GameObject {
      * The GameObject type. This identifies specific classes of GameObjects from
      * other types deriving from the same parent. (unique per class).
      */
-    public static final GameObjectType TYPE = GameObjectType.DEFAULT;
+    private GameObjectType type = GameObjectType.DEFAULT;
 
     private String name = "GameObject";
 
@@ -62,6 +62,14 @@ public class GameObject {
     public void setWidth(float w) { this.width = w; }
 
     public void setHeight(float h) { this.height = h; }
+
+    public GameObjectType getType() {
+        return this.type;
+    }
+
+    public void setType(GameObjectType type) {
+        this.type = type;
+    }
 
     public void setName(String name) { this.name = name; }
 

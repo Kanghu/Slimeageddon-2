@@ -35,26 +35,8 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 
 		font = new BitmapFont();
 
-		System.out.println(Gdx.graphics.getWidth());
-		System.out.println(Gdx.graphics.getHeight());
 		game = new AbstractGame(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		Entity en = new Entity(
-				new Location(0f, 0f),
-				64f, 64f);
-
-		GameObject atZero = new GameObject(new Location(0f, 0f));
-
-		PhysicalObject ground = new PhysicalObject(
-				new Location((-1) * Gdx.graphics.getWidth() / 2, (-1) * Gdx.graphics.getHeight() / 2),
-				1000f, 1f,
-				BodyDef.BodyType.StaticBody);
-
-		/* Provisory */
-		en.setName("Player");
-
-		game.addObject(en);
-		game.addObject(ground);
-		game.addObject(atZero);
+		game.initGame();
 		game.initWorld();
 
 		/* Box2D Debug */
@@ -62,7 +44,7 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 		camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.
 				getHeight());
 
-
+		/* The GameView */
 		gameView = new AbstractGameView(game);
 		Gdx.input.setInputProcessor(this);
 	}

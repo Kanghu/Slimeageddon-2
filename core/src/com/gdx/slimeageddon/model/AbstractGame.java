@@ -1,5 +1,6 @@
 package com.gdx.slimeageddon.model;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Disposable;
@@ -55,6 +56,32 @@ public class AbstractGame implements Disposable {
         this.gameObjects = new ArrayList<GameObject>();
         this.width = width;
         this.height = height;
+    }
+
+    /***
+     * Initialise GameObjects at the start of the game
+     */
+    public void initGame(){
+        /* Initialize the map */
+        Map map = new Map(
+                new Location((-1) * Gdx.graphics.getWidth() / 2, (-1) * Gdx.graphics.getHeight() / 2),
+                1686, 632);
+        this.addObject(map);
+
+        /* Initialize the player */
+        Entity en = new Entity(
+                new Location(0f, 0f),
+                64f, 64f);
+        en.setName("Player");
+        en.setType(GameObjectType.SAMURAI);
+        this.addObject(en);
+
+        /* Initialize the ground */
+        PhysicalObject ground = new PhysicalObject(
+                new Location((-1) * Gdx.graphics.getWidth() / 2, (-1) * Gdx.graphics.getHeight() / 2),
+                1000f, 18f,
+                BodyDef.BodyType.StaticBody);
+        this.addObject(ground);
     }
 
     /***

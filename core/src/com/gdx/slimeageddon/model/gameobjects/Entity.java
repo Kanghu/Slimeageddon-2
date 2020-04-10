@@ -26,7 +26,7 @@ public class Entity extends PhysicalObject {
      * The force we may apply upwards (jumping)
      * @param loc
      */
-    float jumpingSpeed = 50f;
+    float jumpingSpeed = 98f;
 
     /**
      * Whether we are moving or not
