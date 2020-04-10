@@ -58,7 +58,7 @@ public class AbstractGame implements Disposable {
     }
 
     /***
-     * Initialize a Box2D world based on the collection of GameObjects
+     * Initialize a Box2D world based on the collection of GameObjects.
      */
     public void initWorld(){
         /* Initialize World object */

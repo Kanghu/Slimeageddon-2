@@ -51,6 +51,7 @@ public class AbstractGameView implements Disposable {
     }
 
     public void dispose(){
+
         img.dispose();
     }
 }

@@ -1,5 +1,6 @@
 package com.gdx.slimeageddon.model.gameobjects;
 
+import com.gdx.slimeageddon.model.util.GameObjectType;
 import com.gdx.slimeageddon.model.util.Location;
 
 /***
@@ -11,8 +12,15 @@ public class GameObject {
 
     /***
      * The ID is an unique identifier pertant to a specific GameObject.
+     * This identifies the specific GameObject across all other GameObjects (unique per object).
      */
     private int ID;
+
+    /***
+     * The GameObject type. This identifies specific classes of GameObjects from
+     * other types deriving from the same parent. (unique per class).
+     */
+    public static final GameObjectType TYPE = GameObjectType.DEFAULT;
 
     private String name = "GameObject";
 
