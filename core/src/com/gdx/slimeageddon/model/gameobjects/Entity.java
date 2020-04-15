@@ -1,5 +1,6 @@
 package com.gdx.slimeageddon.model.gameobjects;
 
+import com.gdx.slimeageddon.model.util.GameObjectState;
 import com.gdx.slimeageddon.model.util.Location;
 import com.gdx.slimeageddon.model.util.Direction;
 
@@ -15,7 +16,7 @@ public class Entity extends PhysicalObject {
     /**
      * The direction we are currently facing
      */
-    Direction direction = Direction.LEFT;
+    private Direction direction = Direction.LEFT;
 
     /**
      * The speed we are capable of moving at
@@ -28,17 +29,13 @@ public class Entity extends PhysicalObject {
      */
     float jumpingSpeed = 98f;
 
-    /**
-     * Whether we are moving or not
-     */
-    boolean isMoving = false;
-
     public Entity(Location loc){
         super(loc);
     }
 
     public Entity(Location loc, float width, float height){
         super(loc, width, height);
+        setState(GameObjectState.BREATHING);
     }
 
     /***
@@ -95,12 +92,14 @@ public class Entity extends PhysicalObject {
         this.jumpingSpeed = js;
     }
 
-    public boolean isMoving(){
-        return this.isMoving;
-    }
+    public boolean isMoving() { return (getState() == GameObjectState.WALKING); }
 
     public void toggleMoving() {
-        this.isMoving = !this.isMoving;
+        if(getState() != GameObjectState.WALKING) {
+            setState(GameObjectState.WALKING);
+        } else {
+            setState(GameObjectState.BREATHING);
+        }
 
         if(isMoving()){
             switch(this.direction){

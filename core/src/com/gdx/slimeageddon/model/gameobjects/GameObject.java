@@ -1,5 +1,6 @@
 package com.gdx.slimeageddon.model.gameobjects;
 
+import com.gdx.slimeageddon.model.util.GameObjectState;
 import com.gdx.slimeageddon.model.util.GameObjectType;
 import com.gdx.slimeageddon.model.util.Location;
 
@@ -21,6 +22,13 @@ public class GameObject {
      * other types deriving from the same parent. (unique per class).
      */
     private GameObjectType type = GameObjectType.DEFAULT;
+
+    /***
+     * The GameObject state. This identifies specific states in which
+     * this GameObject may be in. For plain GameObjects, a Default state
+     * is assumed.
+     */
+    private GameObjectState state = GameObjectState.DEFAULT;
 
     private String name = "GameObject";
 
@@ -72,6 +80,10 @@ public class GameObject {
     }
 
     public void setName(String name) { this.name = name; }
+
+    public GameObjectState getState() { return this.state; }
+
+    public void setState(GameObjectState state) { this.state = state; }
 
     @Override
     public String toString(){

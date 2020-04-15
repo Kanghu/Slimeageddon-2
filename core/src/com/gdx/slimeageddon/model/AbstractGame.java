@@ -48,7 +48,7 @@ public class AbstractGame implements Disposable {
     private List<GameObject> gameObjects;
 
     /***
-     * The physics Box2D world
+     * The physics Box2D world.
      */
     private World world;
 
@@ -59,7 +59,7 @@ public class AbstractGame implements Disposable {
     }
 
     /***
-     * Initialise GameObjects at the start of the game
+     * Initialise GameObjects at the start of the game.
      */
     public void initGame(){
         /* Initialize the map */
@@ -69,11 +69,9 @@ public class AbstractGame implements Disposable {
         this.addObject(map);
 
         /* Initialize the player */
-        Entity en = new Entity(
-                new Location(0f, 0f),
-                64f, 64f);
+        Entity en = new Entity(new Location(0f, 0f), 64f, 64f);
         en.setName("Player");
-        en.setType(GameObjectType.SAMURAI);
+        en.setType(GameObjectType.VIKING);
         this.addObject(en);
 
         /* Initialize the ground */
@@ -95,7 +93,7 @@ public class AbstractGame implements Disposable {
         for(GameObject obj : this.getGameObjects()){
 
             /* If object is present within the physics engine */
-            if(obj instanceof PhysicalObject){
+            if(obj instanceof PhysicalObject) {
                 initObject(world, (PhysicalObject) obj);
             }
         }

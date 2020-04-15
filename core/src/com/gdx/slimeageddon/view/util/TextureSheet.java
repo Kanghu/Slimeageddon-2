@@ -1,5 +1,7 @@
 package com.gdx.slimeageddon.view.util;
 
+import com.gdx.slimeageddon.model.gameobjects.GameObject;
+import com.gdx.slimeageddon.model.util.GameObjectState;
 import com.gdx.slimeageddon.model.util.GameObjectType;
 
 /***
@@ -10,17 +12,26 @@ import com.gdx.slimeageddon.model.util.GameObjectType;
 
 public enum TextureSheet {
 
-    NONE ("", GameObjectType.DEFAULT),
-    MAP_VALLEY ("resources/Sprites/Maps/map_1.png", GameObjectType.MAP_VALLEY),
-    BRIDGE ("resources/Sprites/Objects/Bridge.png", GameObjectType.BRIDGE),
-    PORTAL ("resources/Sprites/Objects/Portal.png", GameObjectType.PORTAL),
-    PLAYER ("resources/Sprites/Characters/Samurai/Ice Stun.png", GameObjectType.SAMURAI);
+    /* Static sprites with DEFAULT state */
+    NONE ("", GameObjectType.DEFAULT, GameObjectState.DEFAULT),
+    MAP_VALLEY ("resources/Sprites/Maps/map_1.png", GameObjectType.MAP_VALLEY, GameObjectState.DEFAULT),
+    BRIDGE ("resources/Sprites/Objects/Bridge.png", GameObjectType.BRIDGE, GameObjectState.DEFAULT),
+    PORTAL ("resources/Sprites/Objects/Atlas/portal_atlas.txt", GameObjectType.PORTAL, GameObjectState.ACTIVE),
+
+    /* Character sprites that are state-dependent */
+    VIKING_BREATHING ("resources/Sprites/Characters/Viking/Atlas/breathe_atlas.txt", GameObjectType.VIKING, GameObjectState.BREATHING),
+    VIKING_WALKING ("resources/Sprites/Characters/Viking/Atlas/walking_atlas.txt", GameObjectType.VIKING, GameObjectState.WALKING),
+    VIKING_JUMPING ("resources/Sprites/Characters/Viking/Atlas/jump_atlas.txt", GameObjectType.VIKING, GameObjectState.JUMPING),
+    VIKING_RECHARGING ("resources/Sprites/Characters/Viking/Atlas/recharge_atlas.txt", GameObjectType.VIKING, GameObjectState.RECHARGING),
+    VIKING_STUNNED ("resources/Sprites/Characters/Viking/Atlas/daze_atlas.txt", GameObjectType.VIKING, GameObjectState.STUNNED);
 
     private final String texturePath;
     private final GameObjectType type;
+    private final GameObjectState state;
 
-    TextureSheet(String texture, GameObjectType type){
+    TextureSheet(String texture, GameObjectType type, GameObjectState state){
         this.texturePath = texture;
+        this.state = state;
         this.type = type;
     }
 
@@ -30,9 +41,15 @@ public enum TextureSheet {
 
     public GameObjectType getType() { return this.type; }
 
-    public static TextureSheet getTextureByType(GameObjectType type){
+    public GameObjectState getState() { return this.state; }
+
+    public static TextureSheet getDefaultTexture(GameObjectType type) {
+        return getTexture(type, GameObjectState.DEFAULT);
+    }
+
+    public static TextureSheet getTexture(GameObjectType type, GameObjectState state) {
         for(TextureSheet txt : TextureSheet.values()){
-            if(txt.getType() == type){
+            if(txt.getType() == type && txt.getState() == state){
                 return txt;
             }
         }

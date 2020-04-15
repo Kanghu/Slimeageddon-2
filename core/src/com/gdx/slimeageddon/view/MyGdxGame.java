@@ -57,6 +57,8 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 		batch.begin();
 
 		game.tick(Gdx.graphics.getDeltaTime());
+		gameView.advance(Gdx.graphics.getDeltaTime());
+		gameView.updateView();
 		gameView.draw(batch);
 
 		batch.setProjectionMatrix(camera.combined);
