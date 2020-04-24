@@ -1,9 +1,11 @@
 package com.gdx.slimeageddon.view;
 
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.*;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Disposable;
@@ -12,6 +14,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.gdx.slimeageddon.model.AbstractGame;
 import com.gdx.slimeageddon.model.util.GameObjectState;
+import com.gdx.slimeageddon.model.util.Location;
 import com.gdx.slimeageddon.view.gameobjects.*;
 import com.gdx.slimeageddon.model.gameobjects.GameObject;
 import com.gdx.slimeageddon.model.util.GameObjectType;
@@ -21,6 +24,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AbstractGameView implements Disposable {
+
+    private final int CAMERA_WIDTH = 800;
+    private final int CAMERA_HEIGHT = 600;
 
     /***
      * The AbstractGame instance for which we are acting as a view for.
@@ -37,11 +43,20 @@ public class AbstractGameView implements Disposable {
      */
     private Stage stage;
 
+    /***
+     * The GameObject we regard as the player and thus center
+     * the camera around it.
+     */
+    private GameObject player;
+
     public AbstractGameView(AbstractGame game){
         this.game = game;
 
+        // TO DO: Rewrite this
+        this.player = game.findObjectByName("Player");
+
         assetManager = new AssetManager();
-        stage = new Stage(new FitViewport(game.getWidth(), game.getHeight()));
+        stage = new Stage(new FitViewport(CAMERA_WIDTH, CAMERA_HEIGHT));
         this.loadTextures();
         this.initStage();
     }
@@ -90,7 +105,18 @@ public class AbstractGameView implements Disposable {
      * Render each GameObject on a SpriteBatch according to the TextureSheet
      */
     public void draw(){
+        centerCamera();
         stage.draw();
+    }
+
+    private void centerCamera() {
+        Camera cam = stage.getViewport().getCamera();
+        cam.position.set(
+                this.player.getLocation().getX(),
+                this.player.getLocation().getY(), 0);
+
+        cam.position.x = MathUtils.clamp(cam.position.x, cam.viewportWidth / 2, game.getWidth() - cam.viewportWidth / 2);
+        cam.position.y = MathUtils.clamp(cam.position.y, cam.viewportHeight / 2, game.getHeight() - cam.viewportHeight / 2);
     }
 
     public void updateView() {

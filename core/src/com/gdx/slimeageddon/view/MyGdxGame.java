@@ -36,16 +36,16 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 		batch = new SpriteBatch();
 		font = new BitmapFont();
 
-		game = new AbstractGame(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		game = new AbstractGame(2000, 1000);
 		game.initGame();
 		game.initWorld();
 
+		gameView = new AbstractGameView(game);
+
 		/* Box2D Debug */
 		debugRenderer = new Box2DDebugRenderer();
-		camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		camera = new OrthographicCamera(game.getWidth(), game.getHeight());
 
-		/* The GameView */
-		gameView = new AbstractGameView(game);
 		Gdx.input.setInputProcessor(this);
 	}
 
@@ -122,7 +122,7 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 
 	@Override
 	public void resize (int width, int height) {
-		this.gameView.getStage().getViewport().update(width, height, true);
+		this.gameView.getStage().getViewport().update(width, height);
 	}
 
 	@Override

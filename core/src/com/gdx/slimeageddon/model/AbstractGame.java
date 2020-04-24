@@ -76,8 +76,8 @@ public class AbstractGame implements Disposable {
 
         /* Initialize the ground */
         PhysicalObject ground = new PhysicalObject(
-                new Location((-1) * Gdx.graphics.getWidth() / 2, (-1) * Gdx.graphics.getHeight() / 2),
-                1000f, 18f,
+                new Location(0f, 0f),
+                2000f, 18f,
                 BodyDef.BodyType.StaticBody);
         this.addObject(ground);
     }
@@ -113,8 +113,8 @@ public class AbstractGame implements Disposable {
         /* this is required due to different coordinate systems. */
         Location objLoc = obj.getLocation();
         bodyDef.position.set(
-                (objLoc.getX() + obj.getWidth() / 2) / PHYSICS_RATIO,
-                (objLoc.getY() + obj.getHeight() / 2) / PHYSICS_RATIO);
+                ((objLoc.getX() - this.width / 2) + obj.getWidth() / 2) / PHYSICS_RATIO,
+                ((objLoc.getY() - this.height / 2) + obj.getHeight() / 2) / PHYSICS_RATIO);
 
         /* Create body and define shape */
         Body body = world.createBody(bodyDef);
