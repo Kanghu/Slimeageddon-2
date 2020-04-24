@@ -64,12 +64,12 @@ public class AbstractGame implements Disposable {
     public void initGame(){
         /* Initialize the map */
         Map map = new Map(
-                new Location((-1) * Gdx.graphics.getWidth() / 2, (-1) * Gdx.graphics.getHeight() / 2),
+                new Location(0f, 0f),
                 1686, 632);
         this.addObject(map);
 
         /* Initialize the player */
-        Entity en = new Entity(new Location(0f, 0f), 64f, 64f);
+        Entity en = new Entity(new Location(100f, 100f), 32f, 32f);
         en.setName("Player");
         en.setType(GameObjectType.VIKING);
         this.addObject(en);
@@ -153,7 +153,7 @@ public class AbstractGame implements Disposable {
         for(GameObject obj : this.getGameObjects()){
             if(obj instanceof PhysicalObject){
                 PhysicalObject physObj = (PhysicalObject) obj;
-                physObj.updateLocation();
+                physObj.updateLocation(width, height);
             }
         }
     }

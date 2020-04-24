@@ -3,21 +3,22 @@ package com.gdx.slimeageddon.view.gameobjects;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.gdx.slimeageddon.model.gameobjects.GameObject;
 
 /***
- * Acts as a view for a GameObject, thus allowing for smooth separation
- * between the model and its graphical representation.
+ * Acts as a view for a GameObject, represented as an Actor
+ * in the scene2D implementation.
  *
- * Each GameObjectView is called by a Game View to simply render itself
+ * Each GameActor is called by a Stage to simply render itself
  * upon the specified environment (e.g. SpriteBatch).
  */
 
-abstract public class GameObjectView {
+abstract public class AbstractGameActor extends Actor {
 
     private GameObject gameObject;
 
-    public GameObjectView(GameObject object) {
+    public AbstractGameActor(GameObject object) {
         this.gameObject = object;
     }
 
@@ -29,7 +30,7 @@ abstract public class GameObjectView {
         return this.gameObject;
     }
 
-    public abstract void render(Batch batch);
+    public abstract void draw(Batch batch, float parentAlpha);
 
     public abstract void initialize(AssetManager assets);
 }

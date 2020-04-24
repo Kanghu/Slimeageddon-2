@@ -52,13 +52,21 @@ public class PhysicalObject extends GameObject {
      * position. The object's coordinates are translated
      * into Box2D coordinates and any offset is taken into consideration.
      */
-    public void updateLocation(){
-        this.location.setX((body.getPosition().x * PHYSICS_RATIO) - (this.getWidth() / 2));
-        this.location.setY((body.getPosition().y * PHYSICS_RATIO) - (this.getHeight() / 2));
+    public void updateLocation(float worldWidth, float worldHeight){
+        /* Adjust for physics engine ratio and different origin (bottom-left vs center) */
+        float realX = (body.getPosition().x * PHYSICS_RATIO) - (this.getWidth() / 2);
+        float realY = (body.getPosition().y * PHYSICS_RATIO) - (this.getHeight() / 2);
+
+        /* Adjust for different coordinate system (bottom-left vs center) */
+        realX = realX + (worldWidth / 2);
+        realY = realY + (worldHeight / 2);
+
+        this.location.setX(realX);
+        this.location.setY(realY);
     }
 
     /***
-     * Update body according to the GameObject's Location
+     * Update body according to the GameObject's Location.
      */
     protected void updateBody(){
         this.body.getPosition().set(this.getLocation().getX(),

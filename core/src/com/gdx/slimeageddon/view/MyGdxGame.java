@@ -11,6 +11,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.gdx.slimeageddon.model.AbstractGame;
 import com.gdx.slimeageddon.model.gameobjects.Entity;
 import com.gdx.slimeageddon.model.gameobjects.GameObject;
@@ -32,7 +34,6 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-
 		font = new BitmapFont();
 
 		game = new AbstractGame(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -57,9 +58,9 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 		batch.begin();
 
 		game.tick(Gdx.graphics.getDeltaTime());
-		gameView.advance(Gdx.graphics.getDeltaTime());
+		gameView.getStage().act(Gdx.graphics.getDeltaTime());
 		gameView.updateView();
-		gameView.draw(batch);
+		gameView.draw();
 
 		batch.setProjectionMatrix(camera.combined);
 		/* Scale down the sprite batches projection matrix to box2D size */
@@ -118,6 +119,11 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 		}
 
 		return true;
+	}
+
+	@Override
+	public void resize (int width, int height) {
+		this.gameView.getStage().getViewport().update(width, height, true);
 	}
 
 	@Override

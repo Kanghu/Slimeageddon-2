@@ -1,22 +1,34 @@
 package com.gdx.slimeageddon.view.gameobjects;
 
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.*;
 import com.gdx.slimeageddon.model.gameobjects.GameObject;
 import com.gdx.slimeageddon.view.util.TextureSheet;
 
-public class CharacterView extends GameObjectAnimation {
+public class AnimatedActor extends StaticActor {
 
-    public final float FRAMERATE = 1/10f;
+    public static final float FRAMERATE = 1/10f;
 
-    public CharacterView(GameObject object) {
+    protected Animation<TextureRegion> animation;
+    protected float stateTime;
+
+    public AnimatedActor(GameObject object) {
         super(object);
     }
 
+    @Override
+    public void draw(Batch batch, float parentAlpha) {
+        TextureRegion currentFrame = animation.getKeyFrame(stateTime, true);
+        this.sprite = adjustSprite(new Sprite(currentFrame));
+        super.draw(batch, parentAlpha);
+    }
+
+    @Override
+    public void act(float delta) {
+        stateTime += delta;
+    }
+
+    @Override
     public void initialize(AssetManager assets) {
         /* Load the appropriate sprite sheet */
         String textureID = TextureSheet.

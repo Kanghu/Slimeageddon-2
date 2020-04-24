@@ -3,15 +3,17 @@ package com.gdx.slimeageddon.view;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.*;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Disposable;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.gdx.slimeageddon.model.AbstractGame;
-import com.gdx.slimeageddon.model.gameobjects.Entity;
-import com.gdx.slimeageddon.model.gameobjects.Map;
 import com.gdx.slimeageddon.model.util.GameObjectState;
 import com.gdx.slimeageddon.view.gameobjects.*;
 import com.gdx.slimeageddon.model.gameobjects.GameObject;
 import com.gdx.slimeageddon.model.util.GameObjectType;
-import com.gdx.slimeageddon.model.util.Location;
 import com.gdx.slimeageddon.view.util.TextureSheet;
 
 import java.util.ArrayList;
@@ -30,16 +32,17 @@ public class AbstractGameView implements Disposable {
     private AssetManager assetManager;
 
     /***
-     * The view objects for all internal GameObjects
+     * The Stage object we will be maintaning as a view.
      */
-    private List<GameObjectView> gameObjects;
+    private Stage stage;
 
     public AbstractGameView(AbstractGame game){
         this.game = game;
 
         assetManager = new AssetManager();
+        stage = new Stage(new FitViewport(game.getWidth(), game.getHeight()));
         this.loadTextures();
-        this.initGameView();
+        this.initStage();
 
     }
 
@@ -62,68 +65,42 @@ public class AbstractGameView implements Disposable {
     }
 
     /***
-     * Initialize appropriate view objects for all GameObjects.
+     * Initialize appropriate Actors for all GameObjects and
+     * add them to the Stage.
      */
-    public void initGameView() {
-        gameObjects = new ArrayList<GameObjectView>();
-
+    public void initStage() {
         for(GameObject obj : game.getGameObjects()){
-            /* Default GameObjects have no views */
+            /* Default GameObjects have no Actors */
             if(obj.getType() != GameObjectType.DEFAULT) {
-                GameObjectView view;
+                AbstractGameActor actor;
 
                 if(obj.getState() != GameObjectState.DEFAULT) {
-                    view = new CharacterView(obj);
+                    actor = new AnimatedActor(obj);
                 } else {
-                    view = new GameObjectSprite(obj);
+                    actor = new StaticActor(obj);
                 }
 
-                view.initialize(this.assetManager);
-                this.gameObjects.add(view);
+                actor.initialize(this.assetManager);
+                this.stage.addActor(actor);
             }
         }
     }
 
     /***
      * Render each GameObject on a SpriteBatch according to the TextureSheet
-     * @param batch the SpriteBatch on which to draw on
      */
-    public void draw(SpriteBatch batch){
-        for(GameObjectView view : this.gameObjects) {
-            view.render(batch);
-        }
-    }
-
-    public void advance(float time) {
-        for(GameObjectView view : this.gameObjects) {
-            if(view instanceof GameObjectAnimation) {
-                ((GameObjectAnimation) view).advance(time);
-            }
-        }
+    public void draw(){
+        stage.draw();
     }
 
     public void updateView() {
-        for(GameObjectView view : this.gameObjects) {
-            if(view instanceof GameObjectAnimation) {
-                view.initialize(this.assetManager);
+        for(Actor actor : this.getStage().getActors()) {
+            if(actor instanceof AnimatedActor) {
+                ((AnimatedActor) actor).initialize(this.assetManager);
             }
         }
     }
 
-    /***
-     * Chop a TextureSheet into equally sized textures.
-     *
-     * For now, all Textures are split into 64x64 textures.
-     */
-    public void chopTextureSheet(Texture texture) {
-        int TILE_SIZE = 64;
-
-        int FRAME_COLS = texture.getWidth() / TILE_SIZE;
-        int FRAME_ROWS = texture.getHeight() / TILE_SIZE;
-
-        TextureRegion[][] tmp = TextureRegion.split(texture, TILE_SIZE, TILE_SIZE);
-        TextureRegion[] frames = new TextureRegion[tmp.length * tmp[0].length];
-    }
 
     /***
      * Dispose of all the allocated resources.
@@ -131,4 +108,9 @@ public class AbstractGameView implements Disposable {
     public void dispose(){
         assetManager.dispose();
     }
+
+
+    /** Getters and setters **/
+    public Stage getStage() { return this.stage; }
+    public void setStage(Stage stage) { this.stage = stage; }
 }
