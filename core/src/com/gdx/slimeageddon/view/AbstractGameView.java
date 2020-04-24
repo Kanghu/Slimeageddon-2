@@ -1,6 +1,7 @@
 package com.gdx.slimeageddon.view;
 
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -43,7 +44,6 @@ public class AbstractGameView implements Disposable {
         stage = new Stage(new FitViewport(game.getWidth(), game.getHeight()));
         this.loadTextures();
         this.initStage();
-
     }
 
     /***

@@ -64,9 +64,11 @@ public class StaticActor extends AbstractGameActor {
         }
 
         if(getGameObject() instanceof Entity) {
-            if(((Entity) getGameObject()).getDirection() == Direction.LEFT)
+            if (((Entity) getGameObject()).getDirection() == Direction.LEFT)
                 adjusted.flip(true, false);
         }
+
+        adjusted.setSize(width, height);
 
         return adjusted;
     }

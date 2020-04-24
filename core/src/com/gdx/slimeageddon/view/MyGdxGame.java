@@ -42,8 +42,7 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 
 		/* Box2D Debug */
 		debugRenderer = new Box2DDebugRenderer();
-		camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.
-				getHeight());
+		camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
 		/* The GameView */
 		gameView = new AbstractGameView(game);

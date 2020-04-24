@@ -65,7 +65,7 @@ public class AbstractGame implements Disposable {
         /* Initialize the map */
         Map map = new Map(
                 new Location(0f, 0f),
-                1686, 632);
+                843 * 2, 316 * 2);
         this.addObject(map);
 
         /* Initialize the player */
