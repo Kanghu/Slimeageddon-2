@@ -105,6 +105,7 @@ public class AbstractGameView implements Disposable {
      * Render each GameObject on a SpriteBatch according to the TextureSheet
      */
     public void draw(){
+        stage.getCamera().update();
         centerCamera();
         stage.draw();
     }

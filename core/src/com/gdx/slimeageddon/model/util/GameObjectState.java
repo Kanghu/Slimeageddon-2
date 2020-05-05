@@ -17,6 +17,11 @@ public enum GameObjectState {
     RECHARGING,
     STUNNED,
 
+    /* Weapon states */
+    IDLE,
+    ATTACKING,
+    WHIRLING,
+
     /* Default state for plain animated objects */
     ACTIVE
 

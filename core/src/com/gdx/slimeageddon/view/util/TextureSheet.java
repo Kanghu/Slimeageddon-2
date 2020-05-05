@@ -16,6 +16,8 @@ public enum TextureSheet {
     NONE ("", GameObjectType.DEFAULT, GameObjectState.DEFAULT),
     MAP_VALLEY ("resources/Sprites/Maps/map_1.png", GameObjectType.MAP_VALLEY, GameObjectState.DEFAULT),
     BRIDGE ("resources/Sprites/Objects/Bridge.png", GameObjectType.BRIDGE, GameObjectState.DEFAULT),
+
+    /* Objects with a single active state */
     PORTAL ("resources/Sprites/Objects/Atlas/portal_atlas.txt", GameObjectType.PORTAL, GameObjectState.ACTIVE),
 
     /* Character sprites that are state-dependent */
@@ -23,7 +25,13 @@ public enum TextureSheet {
     VIKING_WALKING ("resources/Sprites/Characters/Viking/Atlas/walking_atlas.txt", GameObjectType.VIKING, GameObjectState.WALKING),
     VIKING_JUMPING ("resources/Sprites/Characters/Viking/Atlas/jump_atlas.txt", GameObjectType.VIKING, GameObjectState.JUMPING),
     VIKING_RECHARGING ("resources/Sprites/Characters/Viking/Atlas/recharge_atlas.txt", GameObjectType.VIKING, GameObjectState.RECHARGING),
-    VIKING_STUNNED ("resources/Sprites/Characters/Viking/Atlas/daze_atlas.txt", GameObjectType.VIKING, GameObjectState.STUNNED);
+    VIKING_STUNNED ("resources/Sprites/Characters/Viking/Atlas/daze_atlas.txt", GameObjectType.VIKING, GameObjectState.STUNNED),
+
+    /* Weapons */
+    AXE_IDLE ("resources/Sprites/Characters/Viking/Atlas/idle_axe_atlas.txt", GameObjectType.AXE, GameObjectState.IDLE),
+    AXE_ATTACKING ("resources/Sprites/Characters/Viking/Atlas/attack_atlas.txt", GameObjectType.AXE, GameObjectState.ATTACKING);
+
+
 
     private final String texturePath;
     private final GameObjectType type;

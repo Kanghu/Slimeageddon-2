@@ -14,6 +14,11 @@ import com.gdx.slimeageddon.model.util.Direction;
 public class Entity extends PhysicalObject {
 
     /**
+     * The HP of this Entity object.
+     */
+    private int hitpoints = 100;
+
+    /**
      * The direction we are currently facing
      */
     private Direction direction = Direction.LEFT;
@@ -92,6 +97,10 @@ public class Entity extends PhysicalObject {
         this.jumpingSpeed = js;
     }
 
+    public void setHitpoints(int hp) { this.hitpoints = hp; }
+
+    public int getHitpoints() { return this.hitpoints; }
+
     public boolean isMoving() { return (getState() == GameObjectState.WALKING); }
 
     public void toggleMoving() {
@@ -113,5 +122,21 @@ public class Entity extends PhysicalObject {
         } else {
             this.getBody().setLinearVelocity(0f, 0f);
         }
+    }
+
+    public void toggleRecharge() {
+        if(getState() != GameObjectState.RECHARGING) {
+            setState(GameObjectState.RECHARGING);
+        } else {
+            setState(GameObjectState.BREATHING);
+        }
+    }
+
+    /***
+     * Callback for when the Entity gets damaged
+     * @param dmg the amount of damage
+     */
+    public void damaged(int dmg) {
+        setHitpoints(this.hitpoints - dmg);
     }
 }

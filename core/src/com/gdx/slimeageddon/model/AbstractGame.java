@@ -1,6 +1,5 @@
 package com.gdx.slimeageddon.model;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Disposable;
@@ -8,6 +7,9 @@ import com.badlogic.gdx.utils.Disposable;
 import com.gdx.slimeageddon.model.gameobjects.Entity;
 import com.gdx.slimeageddon.model.gameobjects.GameObject;
 import com.gdx.slimeageddon.model.gameobjects.PhysicalObject;
+import com.gdx.slimeageddon.model.gameobjects.characters.Character;
+import com.gdx.slimeageddon.model.gameobjects.characters.Viking;
+import com.gdx.slimeageddon.model.gameobjects.weapons.Weapon;
 import com.gdx.slimeageddon.model.util.*;
 import com.gdx.slimeageddon.model.util.Location;
 import com.gdx.slimeageddon.model.gameobjects.*;
@@ -69,9 +71,8 @@ public class AbstractGame implements Disposable {
         this.addObject(map);
 
         /* Initialize the player */
-        Entity en = new Entity(new Location(100f, 100f), 32f, 32f);
+        Entity en = new Viking(new Location(100f, 100f));
         en.setName("Player");
-        en.setType(GameObjectType.VIKING);
         this.addObject(en);
 
         /* Initialize the ground */
@@ -97,6 +98,36 @@ public class AbstractGame implements Disposable {
                 initObject(world, (PhysicalObject) obj);
             }
         }
+    }
+
+    protected void initCollisionListeners() {
+        world.setContactListener(new ContactListener() {
+            @Override
+            public void beginContact(Contact contact) {
+                GameObject t1 = (GameObject) contact.getFixtureA().getBody().getUserData();
+                GameObject t2 = (GameObject) contact.getFixtureB().getBody().getUserData();
+
+                if(t1 instanceof com.gdx.slimeageddon.model.gameobjects.weapons.Weapon && t2 instanceof Entity) {
+                    /* Do some damage */
+                    ((Weapon) t1).hit((Entity) t2);
+                }
+            }
+
+            @Override
+            public void endContact(Contact contact) {
+
+            }
+
+            @Override
+            public void preSolve(Contact contact, Manifold oldManifold) {
+
+            }
+
+            @Override
+            public void postSolve(Contact contact, ContactImpulse impulse) {
+
+            }
+        });
     }
 
     /***
@@ -127,11 +158,11 @@ public class AbstractGame implements Disposable {
         fixtureDef.shape = shape;
         fixtureDef.density = 1f;
         fixtureDef.friction = 0f;
-
         Fixture fixture = body.createFixture(fixtureDef);
 
         shape.dispose();
 
+        body.setUserData(obj);
         obj.setBody(body);
     }
 
@@ -166,6 +197,11 @@ public class AbstractGame implements Disposable {
 
     public void addObject(GameObject obj){
         this.gameObjects.add(obj);
+
+        // TO DO: Rewrite this for generic nested GameObjects
+        if(obj instanceof Character && ((Character) obj).getWeapon() != null) {
+            this.gameObjects.add(((Character) obj).getWeapon());
+        }
     }
 
     public GameObject findObjectByName(String name){
@@ -195,6 +231,8 @@ public class AbstractGame implements Disposable {
                 ent.turn(Direction.LEFT);
             } else if(action == "jump"){
                 ent.jump();
+            } else if(action == "recharge"){
+                ent.toggleRecharge();
             }
         }
     }

@@ -1,0 +1,47 @@
+whirl_atlas.png
+size: 768, 128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Axe whirl
+  rotate: false
+  xy: 0, 0
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 1
+Axe whirl
+  rotate: false
+  xy: 128, 0
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 2
+Axe whirl
+  rotate: false
+  xy: 256, 0
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 3
+Axe whirl
+  rotate: false
+  xy: 384, 0
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 4
+Axe whirl
+  rotate: false
+  xy: 512, 0
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 5
+Axe whirl
+  rotate: false
+  xy: 640, 0
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 6

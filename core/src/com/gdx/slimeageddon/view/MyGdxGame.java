@@ -36,7 +36,7 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 		batch = new SpriteBatch();
 		font = new BitmapFont();
 
-		game = new AbstractGame(2000, 1000);
+		game = new AbstractGame(1600, 900);
 		game.initGame();
 		game.initWorld();
 
@@ -115,6 +115,10 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 
 		if(keycode == Input.Keys.W){
 			game.execute("Player", "jump");
+		}
+
+		if(keycode == Input.Keys.S) {
+			game.execute("Player", "recharge");
 		}
 
 		return true;
