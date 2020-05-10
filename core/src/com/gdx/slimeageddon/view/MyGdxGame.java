@@ -121,6 +121,10 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 			game.execute("Player", "recharge");
 		}
 
+		if(keycode == Input.Keys.SPACE) {
+			game.execute("Player", "attack");
+		}
+
 		return true;
 	}
 

@@ -9,7 +9,6 @@ public class Viking extends Character {
 
     public Viking(Location loc) {
         super(loc, 32f, 32f);
-        setWeapon(new Axe(this));
 
         setType(GameObjectType.VIKING);
         setState(GameObjectState.BREATHING);

@@ -61,7 +61,7 @@ public class Entity extends PhysicalObject {
      * Apply an upwards force equal to 'jumpingSpeed'
      */
     public void jump(){
-        this.getBody().applyForceToCenter(0f, jumpingSpeed, true);
+        applyForce(0f, jumpingSpeed);
     }
 
     /**
@@ -113,15 +113,39 @@ public class Entity extends PhysicalObject {
         if(isMoving()){
             switch(this.direction){
                 case RIGHT:
-                    this.getBody().setLinearVelocity(movingSpeed, 0f);
+                    setVelocity(movingSpeed, 0f);
                     break;
                 case LEFT:
-                    this.getBody().setLinearVelocity((-1) * movingSpeed, 0f);
+                    setVelocity(movingSpeed * (-1), 0f);
                     break;
             }
         } else {
-            this.getBody().setLinearVelocity(0f, 0f);
+            setVelocity(0f, 0f);
         }
+    }
+
+    /**
+     * Sets linear velocity to this object and all nested objects
+     * @param velX, velY values describing the velocity vector
+     */
+    private void setVelocity(float velX, float velY) {
+        /*for(GameObject obj : this.getChildGameObjects()) {
+            if(obj instanceof PhysicalObject) {
+                ((PhysicalObject) obj).getBody().setLinearVelocity(velX, velY);
+            }
+        }*/
+
+        this.getBody().setLinearVelocity(velX, velY);
+    }
+
+    private void applyForce(float forceX, float forceY) {
+        /*for(GameObject obj : this.getChildGameObjects()) {
+            if(obj instanceof PhysicalObject) {
+                ((PhysicalObject) obj).getBody().applyForceToCenter(forceX, forceY, true);
+            }
+        }*/
+
+        this.getBody().applyForceToCenter(forceX, forceY, true);
     }
 
     public void toggleRecharge() {

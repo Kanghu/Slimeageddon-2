@@ -2,6 +2,7 @@ package com.gdx.slimeageddon.model.gameobjects;
 
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.gdx.slimeageddon.model.util.Location;
 
 /***
@@ -29,8 +30,14 @@ public class PhysicalObject extends GameObject {
      */
     private BodyDef.BodyType bodyType;
 
+    /***
+     * This object's internal fixture definition (Box2D)
+     */
+    public FixtureDef fixtureDef = new FixtureDef();
+
     public PhysicalObject(Location loc){
         super(loc);
+        initFixtureDef();
     }
 
     public PhysicalObject(Location loc, float width, float height){
@@ -45,6 +52,13 @@ public class PhysicalObject extends GameObject {
     public PhysicalObject(Location loc, float width, float height, BodyDef.BodyType bodyType){
         this(loc, width, height);
         this.bodyType = bodyType;
+    }
+
+    public void initFixtureDef() {
+
+        /* Default fixture definitions */
+        fixtureDef.density = 1f;
+        fixtureDef.friction = 0f;
     }
 
     /***
@@ -92,4 +106,5 @@ public class PhysicalObject extends GameObject {
     public BodyDef.BodyType getBodyType() { return this.bodyType; }
 
     public void setBodyType(BodyDef.BodyType type) { this.bodyType = type; }
+
 }

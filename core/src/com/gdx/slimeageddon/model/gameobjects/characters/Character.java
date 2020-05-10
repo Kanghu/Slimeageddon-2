@@ -17,7 +17,12 @@ public abstract class Character extends Entity {
         super(loc, width, height);
     }
 
-    public void setWeapon(Weapon weap) { this.weapon = weap; }
+    public void setWeapon(Weapon weap)
+    {
+        this.weapon = weap;
+        this.weapon.equipTo(this);
+        this.addChildObject(weap);
+    }
 
     public Weapon getWeapon() { return this.weapon; }
 

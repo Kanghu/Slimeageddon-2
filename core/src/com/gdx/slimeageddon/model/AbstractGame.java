@@ -9,6 +9,7 @@ import com.gdx.slimeageddon.model.gameobjects.GameObject;
 import com.gdx.slimeageddon.model.gameobjects.PhysicalObject;
 import com.gdx.slimeageddon.model.gameobjects.characters.Character;
 import com.gdx.slimeageddon.model.gameobjects.characters.Viking;
+import com.gdx.slimeageddon.model.gameobjects.weapons.Axe;
 import com.gdx.slimeageddon.model.gameobjects.weapons.Weapon;
 import com.gdx.slimeageddon.model.util.*;
 import com.gdx.slimeageddon.model.util.Location;
@@ -71,9 +72,13 @@ public class AbstractGame implements Disposable {
         this.addObject(map);
 
         /* Initialize the player */
-        Entity en = new Viking(new Location(100f, 100f));
+        Viking en = new Viking(new Location(100f, 100f));
         en.setName("Player");
         this.addObject(en);
+
+        /* Initialize his weapon */
+        Weapon axe = new Axe(en);
+        this.addObject(axe);
 
         /* Initialize the ground */
         PhysicalObject ground = new PhysicalObject(
@@ -96,6 +101,10 @@ public class AbstractGame implements Disposable {
             /* If object is present within the physics engine */
             if(obj instanceof PhysicalObject) {
                 initObject(world, (PhysicalObject) obj);
+            }
+
+            if(obj instanceof Weapon) {
+                world.createJoint(((Weapon) obj).getJointDef());
             }
         }
     }
@@ -143,6 +152,7 @@ public class AbstractGame implements Disposable {
         /* Translate the GameObject coordinates to Box2D coords, */
         /* this is required due to different coordinate systems. */
         Location objLoc = obj.getLocation();
+        bodyDef.fixedRotation = true;
         bodyDef.position.set(
                 ((objLoc.getX() - this.width / 2) + obj.getWidth() / 2) / PHYSICS_RATIO,
                 ((objLoc.getY() - this.height / 2) + obj.getHeight() / 2) / PHYSICS_RATIO);
@@ -156,12 +166,16 @@ public class AbstractGame implements Disposable {
         /* Define body's Fixture */
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
-        fixtureDef.density = 1f;
-        fixtureDef.friction = 0f;
+        fixtureDef.density = obj.fixtureDef.density;
+        fixtureDef.friction = obj.fixtureDef.friction;
+        fixtureDef.isSensor = obj.fixtureDef.isSensor;
+
         Fixture fixture = body.createFixture(fixtureDef);
 
+        /* Dispose of shape object */
         shape.dispose();
 
+        /* Set object's physics body and pass the GameObject as user data */
         body.setUserData(obj);
         obj.setBody(body);
     }
@@ -220,7 +234,7 @@ public class AbstractGame implements Disposable {
 
     // TO DO: Write this smarter
     public void execute(String name, String action){
-        Entity ent = (Entity) this.findObjectByName(name);
+        Character ent = (Character) this.findObjectByName(name);
 
         if(ent != null){
             if(action == "move"){
@@ -233,6 +247,8 @@ public class AbstractGame implements Disposable {
                 ent.jump();
             } else if(action == "recharge"){
                 ent.toggleRecharge();
+            } else if(action == "attack") {
+                ent.getWeapon().attack();
             }
         }
     }

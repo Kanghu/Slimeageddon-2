@@ -4,6 +4,9 @@ import com.gdx.slimeageddon.model.util.GameObjectState;
 import com.gdx.slimeageddon.model.util.GameObjectType;
 import com.gdx.slimeageddon.model.util.Location;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /***
  * Abstract class representing a game object from which all other
  * game objects are derived.
@@ -42,6 +45,11 @@ public class GameObject {
      * X and Y are the bottom-left corner of this shape, by convention.
      */
     private float width, height;
+
+    /***
+     * The nested child GameObjects of this GameObject
+     */
+    private List<GameObject> childGameObjects = new ArrayList<>();
 
     public GameObject(Location loc){
         this.location = loc;
@@ -84,6 +92,14 @@ public class GameObject {
     public GameObjectState getState() { return this.state; }
 
     public void setState(GameObjectState state) { this.state = state; }
+
+    public List<GameObject> getChildGameObjects() {
+        return this.childGameObjects;
+    }
+
+    public void addChildObject(GameObject obj) {
+        childGameObjects.add(obj);
+    }
 
     @Override
     public String toString(){
